@@ -1,0 +1,14 @@
+<app-nav-bar id="NavBar"></app-nav-bar>
+<div id="Banner">
+    <div id="Center">
+        <div id="content">
+            <div id="Title">
+                <h1>Cuida con confianza: <br>
+                    conectando familias con cuidadores</h1>
+            </div>
+            <div class="card flex justify-content-center">
+                <p-cascadeSelect id="ButtonCity" [(ngModel)]="selectedCity" [options]="countries" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" [style]="{ minWidth: '14rem' }" placeholder="Búsca tu localidad"></p-cascadeSelect>
+            </div>
+        </div>
+    </div>
+</div>
