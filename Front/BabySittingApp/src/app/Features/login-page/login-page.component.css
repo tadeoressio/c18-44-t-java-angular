@@ -1,0 +1,55 @@
+#MainDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    margin: 0;
+}
+#MenuDiv {
+    height: 70%;
+    width: 50%;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+#FormDiv {
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-content: center;   
+}
+#InputDiv {
+    margin-top: 5%;
+}
+input, button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #14b8a6;
+    color: white;
+    padding: 5%;
+    margin: auto;
+    margin-bottom: 10%;
+    align-items: center;
+}
+input {
+    width: 90%;
+}
+input:focus, button:focus {
+    background-color: #9bded6;
+}
+p {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+}
+::placeholder {
+    color:lightgray;
+}
+input:focus::-webkit-input-placeholder {
+	color : transparent;
+}

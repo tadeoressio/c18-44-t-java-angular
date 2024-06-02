@@ -1,0 +1,11 @@
+#CardsFirstQuestion {   
+    display: flex;
+    justify-content: center;
+}
+#CardsFirstQuestion p-card {
+    margin-top: 2%;
+    margin-left: 2%;
+}
+img {
+    height: 250px;
+}

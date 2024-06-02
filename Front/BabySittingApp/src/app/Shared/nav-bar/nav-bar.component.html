@@ -1,0 +1,17 @@
+<div id="NavBar">
+    <div id="SecLogo">
+        <div id="Logo">
+            <a href="#" ><img id="ImgLogo" src="/assets/LogoBabySitting.png"></a>        
+        </div>
+    </div>
+    <div id="Access">
+        <div>
+            <a href="#">Sobre BabySitting</a>
+        </div>
+        <app-lik-menu *ngIf="LogDads || LogBabySitters"></app-lik-menu>
+        <app-not-menu *ngIf="LogDads || LogBabySitters"></app-not-menu>
+        <app-logged-menu *ngIf="LogDads || LogBabySitters"></app-logged-menu>
+        <app-login-menu *ngIf="!LogDads && !LogBabySitters"></app-login-menu>
+        <p-button (click)="RedirectRegister()" label='Regístrate'/>
+    </div>
+</div>
