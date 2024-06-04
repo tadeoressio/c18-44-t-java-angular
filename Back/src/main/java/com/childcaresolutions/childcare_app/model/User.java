@@ -23,24 +23,24 @@ public abstract class User {
     private String photo;
     private String location;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
-    @JoinTable(
-            name = "user_skills",
-            joinColumns = { @JoinColumn(name = "user_id") },
-            inverseJoinColumns = { @JoinColumn(name = "skill_id") }
-    )
-    private Set<Skill> skills = new HashSet<>();
+ // @ManyToMany(cascade = { CascadeType.ALL })
+ // @JoinTable(
+ //         name = "user_skills",
+ //         joinColumns = { @JoinColumn(name = "user_id") },
+ //         inverseJoinColumns = { @JoinColumn(name = "skill_id") }
+ // )
+ // private Set<Skill> skills = new HashSet<>();
 
-    @ElementCollection(targetClass = Day.class)
-    @CollectionTable(name = "nanny_available_days", joinColumns = @JoinColumn(name = "nanny_id"))
-    @Enumerated(EnumType.STRING)
-    @Column(name = "day")
-    private Set<Day> availableDays = EnumSet.noneOf(Day.class);
+ // @ElementCollection(targetClass = Day.class)
+ // @CollectionTable(name = "user_available_days", joinColumns = @JoinColumn(name = "user_id"))
+ // @Enumerated(EnumType.STRING)
+ // @Column(name = "day")
+ // private Set<Day> availableDays = EnumSet.noneOf(Day.class);
 
    // private boolean availability;
    // private boolean day;
 
-    private TimeSlot timeSlot;
+    //private TimeSlot timeSlot;
 
 
 

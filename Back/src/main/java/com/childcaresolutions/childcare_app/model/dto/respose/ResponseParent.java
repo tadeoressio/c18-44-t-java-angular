@@ -1,7 +1,13 @@
 package com.childcaresolutions.childcare_app.model.dto.respose;
 
+import com.childcaresolutions.childcare_app.enums.Day;
+import com.childcaresolutions.childcare_app.enums.RoleEnum;
+import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.childcaresolutions.childcare_app.model.Skill;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 public record ResponseParent(
 
@@ -14,11 +20,18 @@ public record ResponseParent(
         //@Size(min = 2, max = 20, message = "secondName must be between 2 and 20 characters in length")
         //String password,
         String photo,
-        //String availability,
         String location,
+
+        // 3 variables new for parent
+        Set<Skill> skills,
+        Set<Day> availableDays,
+        TimeSlot timeSlot,
         String phoneNumber,
         int numberOfChildren,
         String infoFamily
+
+      //  RoleEnum role
+
 
 
 ) {

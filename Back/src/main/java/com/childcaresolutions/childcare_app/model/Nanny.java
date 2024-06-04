@@ -20,6 +20,8 @@ public class Nanny extends User {
     private String experiences;
     private int nannyRate;
 
+
+
     // Relación OneToMany con Request
     @OneToMany(mappedBy = "nanny", cascade = CascadeType.ALL)
     private List<Request> requests;
