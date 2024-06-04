@@ -1,35 +1,24 @@
 package com.childcaresolutions.childcare_app.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+
 import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import lombok.*;
 
 @Entity
+@Data
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Nanny {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Nanny extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String email;
-    private String password;
-    private String photo;
-    private String availability;
-    private String skills;
     private String experiences;
     private int nannyRate;
-    private String location;
 
     // Relación OneToMany con Request
     @OneToMany(mappedBy = "nanny", cascade = CascadeType.ALL)

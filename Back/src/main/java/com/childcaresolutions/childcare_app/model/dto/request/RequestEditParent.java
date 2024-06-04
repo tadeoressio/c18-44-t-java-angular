@@ -7,7 +7,7 @@ public record RequestEditParent(
         String email,
         String password,
         String photo,
-        boolean availability,
+        //boolean availability,
         String location,
          String phoneNumber,
         int numberOfChildren,

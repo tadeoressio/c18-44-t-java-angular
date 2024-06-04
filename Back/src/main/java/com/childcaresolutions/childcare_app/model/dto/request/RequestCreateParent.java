@@ -14,7 +14,8 @@ public record RequestCreateParent(
         @Size(min = 2, max = 20, message = "secondName must be between 2 and 20 characters in length")
         String password,
         String photo,
-        boolean availability,
+
+        //boolean availability,
         String location,
         String phoneNumber,
         int numberOfChildren,

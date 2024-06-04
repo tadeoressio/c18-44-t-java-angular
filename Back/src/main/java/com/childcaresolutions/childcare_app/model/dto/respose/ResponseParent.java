@@ -14,7 +14,7 @@ public record ResponseParent(
         //@Size(min = 2, max = 20, message = "secondName must be between 2 and 20 characters in length")
         //String password,
         String photo,
-        String availability,
+        //String availability,
         String location,
         String phoneNumber,
         int numberOfChildren,

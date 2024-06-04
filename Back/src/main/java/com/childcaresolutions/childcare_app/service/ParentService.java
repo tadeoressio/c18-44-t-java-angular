@@ -34,7 +34,7 @@ public class ParentService implements IParentService {
         Parent parent = parentMapper.requestCreateToParent(requestCreateParent);
 
         // Aplicar lógica de negocio adicional
-        parent.setAvailability(false);  // Ejemplo de lógica de negocio: todos los padres nuevos son disponibles por defecto
+        ///////////////////// parent.setAvailability(false);  // Ejemplo de lógica de negocio: todos los padres nuevos son disponibles por defecto
 
         // Guardar la entidad Parent en la base de datos
         Parent savedParent = parentRepository.save(parent);
