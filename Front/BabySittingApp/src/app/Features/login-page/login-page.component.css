@@ -12,23 +12,26 @@
     border-radius: 30px;
 }
 #FormDiv {
-    height: 70%;
+    height: 100%;
     display: flex;
     justify-content: center;
-    align-content: center;   
+    
+    align-items: center;
+    margin-bottom: 70%;
 }
 #InputDiv {
     margin-top: 5%;
 }
-#rememberDiv {
+#rememberDiv, #forgottenDiv {
     display: flex;
     justify-content: center;
 }
-input, button {
+#inputEmail, #inputPass,  button {
     display: flex;
     justify-content: center;
     align-content: center;
-    height: 30px;
+    height: 50px;
+    width: 400px;
     border-radius: 10px;
     border: none;
     background-color: #e4a3a3;
@@ -38,8 +41,8 @@ input, button {
     margin-bottom: 10%;
     align-items: center;
 }
-input {
-    width: 90%;
+#inputPass, button {
+    margin-bottom: 5%;
 }
 input:focus, button:focus {
     background-color: #f8acac;
@@ -65,16 +68,37 @@ input:focus::-webkit-input-placeholder {
 #checksDiv {
     display: flex;
     justify-content: center;
+    height: 30px;
 }
 label {
-    color: #f58181
+    color: #f58181;
+    padding-top: 2px;
 }
 #rememberCheck {
     border-radius: 50px;
+    margin-right: 5%;
 }
 input[type="checkbox"] {
     accent-color: #f8acac;
     background-color: #f58181;
     color:#e4a3a3;
     flex-shrink: 0;
+}
+a {
+    color: #f58181;
+    text-decoration: none;
+}
+a:hover {
+    color:#f62828;
+}
+button:hover {
+    background-color:#f58181;
+}
+#loginButton {
+    width: 33%;
+    margin-top: 3%;
+}
+#registerButton {
+    display: flex;
+    justify-content: center;
 }
