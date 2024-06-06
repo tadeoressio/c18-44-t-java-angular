@@ -17,7 +17,8 @@ export class LoginPageComponent {
   SendLoginInfo() {
     console.log('hola');
     console.log(this.UserEmail);
-    console.log(this.UserPass);    
+    console.log(this.UserPass);        
   }
+  
 
 }

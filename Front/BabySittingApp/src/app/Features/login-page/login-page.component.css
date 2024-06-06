@@ -20,6 +20,10 @@
 #InputDiv {
     margin-top: 5%;
 }
+#rememberDiv {
+    display: flex;
+    justify-content: center;
+}
 input, button {
     display: flex;
     justify-content: center;
@@ -27,7 +31,7 @@ input, button {
     height: 30px;
     border-radius: 10px;
     border: none;
-    background-color: #14b8a6;
+    background-color: #e4a3a3;
     color: white;
     padding: 5%;
     margin: auto;
@@ -38,7 +42,8 @@ input {
     width: 90%;
 }
 input:focus, button:focus {
-    background-color: #9bded6;
+    background-color: #f8acac;
+    color: white;
 }
 p {
     display: flex;
@@ -46,10 +51,30 @@ p {
     color: white;
     font-size: 30px;
     font-weight: 700;
+    margin-top: 5%;
 }
 ::placeholder {
-    color:lightgray;
+    color:white;
 }
 input:focus::-webkit-input-placeholder {
 	color : transparent;
+}
+#rememberCheck {
+    width: 20px;
+}
+#checksDiv {
+    display: flex;
+    justify-content: center;
+}
+label {
+    color: #f58181
+}
+#rememberCheck {
+    border-radius: 50px;
+}
+input[type="checkbox"] {
+    accent-color: #f8acac;
+    background-color: #f58181;
+    color:#e4a3a3;
+    flex-shrink: 0;
 }

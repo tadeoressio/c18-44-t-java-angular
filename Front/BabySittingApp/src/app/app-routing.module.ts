@@ -6,6 +6,8 @@ import { FirstQuestionRegisterComponent } from './Features/first-question-regist
 import { RegisterDadsComponent } from './Features/register-dads/register-dads.component';
 import { RegisterBabySittersComponent } from './Features/register-baby-sitters/register-baby-sitters.component';
 import { LoginPageComponent } from './Features/login-page/login-page.component';
+import { SecondQuestionDadsRegisterComponent } from './features/second-question-dads-register/second-question-dads-register.component';
+import { ThirdQuestionDadsRegisterComponent } from './Features/third-question-dads-register/third-question-dads-register.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'LoginPage',
     component: LoginPageComponent
+  },
+  {
+    path: 'SecondQuestionDadsRegister',
+    component: SecondQuestionDadsRegisterComponent
+  },
+  {
+    path: 'ThirdQuestionDadsRegister',
+    component: ThirdQuestionDadsRegisterComponent
   },
 ];
 

@@ -1,0 +1,97 @@
+<app-nav-bar></app-nav-bar>
+<div id="MainDiv" class="form-group">
+    <div id="MenuDiv">
+        <div>
+            <p>Indique horario y<br>
+                habilidades especiales</p>
+        </div>
+        <div id="optionsDiv">
+            <div id="daysDiv">
+                <img src="../assets/Calendar.png">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Días</button>
+                    <ul class="dropdown-menu">
+                        <form id="mainFrm" onsubmit="checkFunction()" method="post">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">Lunes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Martes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Miércoles</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Jueves</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Viernes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Sábado</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Domingo</label>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>     
+            <div id="hoursDiv">
+                <div class="dropdown">
+                    <img src="../assets/Watch.svg">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Horario</button>
+                    <ul class="dropdown-menu">
+                        <form>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <label class="form-check-label" for="flexRadioDefault1">Mañana</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
+                                <label class="form-check-label" for="flexRadioDefault">Tarde</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
+                                <label class="form-check-label" for="flexRadioDefault">Noche</label>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div> 
+            <div id="skillsDiv">
+                <img src="../assets/Car.png">      
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Habilidades</button>
+                    <ul class="dropdown-menu">
+                        <form >
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">Cocinar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">Manejar</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                                <label class="form-check-label" for="flexCheckChecked">PetFriendly</label>
+                            </div>
+                        </form>
+                    </ul>
+                </div>
+            </div>  
+        </div>
+        <div id="submButton">
+            <button type="submit" (click)="checkFunction()">Siguiente</button>
+        </div>
+    </div>
+    
+</div>

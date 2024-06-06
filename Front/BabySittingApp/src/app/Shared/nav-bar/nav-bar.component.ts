@@ -15,4 +15,7 @@ export class NavBarComponent {
   RedirectRegister () {
     this.router.navigateByUrl('/FirstQuestionRegister'); 
   }
+  RedirectLogin () {
+    this.router.navigateByUrl('/LoginPage'); 
+  }
 }

@@ -7,9 +7,10 @@
         <p>
             Aquí podrás registrarte como niñero/a para poder contactar con familias que requieran este servicio
         </p>
-        <ng-template pTemplate="footer">
+        <!-- <ng-template pTemplate="footer">
             <p-button (click)="RedirectBabySittersAfterFirstQuestion()" label="Registrarme como niñero/a" icon="pi pi-check"></p-button>
-        </ng-template>
+        </ng-template> -->
+        <button>Registrarme como niñero/a</button>
     </p-card>
     <p-card header="Padre/madre" [style]="{ width: '360px' }">
         <ng-template pTemplate="header">
@@ -18,8 +19,9 @@
         <p>
             Aquí podrás registrarte como padre/madre para poder contactar con niñeros/as cerca de tu zona
         </p>
-        <ng-template pTemplate="footer">
-            <p-button (click)="RedirectDadsAfterFirstQuestion()" label="Registrarme como padre/madre" icon="pi pi-check"></p-button>
-        </ng-template>
+        <!-- <ng-template pTemplate="footer">
+            <p-button id="babysitterButton" (click)="RedirectDadsAfterFirstQuestion()" label="Registrarme como padre/madre" icon="pi pi-check"></p-button>
+        </ng-template> -->
+        <button (click)="RedirectDadsAfterFirstQuestion()">Registrarme como padre/madre</button>
     </p-card>
 </div>

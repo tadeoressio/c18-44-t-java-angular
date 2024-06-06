@@ -16,6 +16,6 @@ export class FirstQuestionRegisterComponent {
   }
   RedirectDadsAfterFirstQuestion () {
     localStorage.setItem( 'RegProfile', 'Dads');
-    this.router.navigateByUrl('/RegisterDads'); 
+    this.router.navigateByUrl('/SecondQuestionDadsRegister'); 
   }
 }
