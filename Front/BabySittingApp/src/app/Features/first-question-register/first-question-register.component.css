@@ -13,5 +13,13 @@ img {
     background-color: blue;
 }
 button {
-    
+    background-color: #f8acac;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    width: 320px;
+}
+button:hover {
+    background-color: #f17979;
 }
