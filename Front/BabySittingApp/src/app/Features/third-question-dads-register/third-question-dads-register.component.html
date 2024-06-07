@@ -6,103 +6,105 @@
                 habilidades especiales</p>
         </div>
         <div id="optionsDiv">
-            <div class="daysDiv">
-                <div class="imgsDiv">
-                    <img src="../assets/Watch.svg">
-                </div>
-                <p class="indTitles" data-bs-toggle="dropdown" aria-expanded="false">Horario</p>
-                <form id="daysChecks" onsubmit="checkFunction()" method="post">
-                    <div class="checks">
-                        <div class="checkBox">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <form  formArray="hourArray" >
+                <div class="daysDiv">
+                    <div class="imgsDiv">
+                        <img src="../assets/Watch.svg">
+                    </div>
+                    <p class="indTitles" data-bs-toggle="dropdown" aria-expanded="false">Horario</p>
+                    <div id="daysChecks" >
+                        <div class="checks">
+                            <div class="checkBox">
+                                <input name="hour" value="morning" class="form-check-input" type="checkbox" id="flexCheckDefault">
+                            </div>
+                            <img class="hoursIcons" src="../assets/Morning.png">
+                            <!-- <label class="form-check-label" for="flexCheckDefault">M</label> -->
                         </div>
-                        <img class="hoursIcons" src="../assets/Morning.png">
-                        <!-- <label class="form-check-label" for="flexCheckDefault">M</label> -->
-                    </div>
-                    <div class="checks">
-                        <div class="checkBox">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <div class="checks">
+                            <div class="checkBox">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            </div>
+                            <img class="hoursIcons" src="../assets/Afternoon.png">
+                            <!-- <label class="form-check-label" for="flexCheckChecked">T</label> -->
                         </div>
-                        <img class="hoursIcons" src="../assets/Afternoon.png">
-                        <!-- <label class="form-check-label" for="flexCheckChecked">T</label> -->
-                    </div>
-                    <div class="checks">
-                        <div class="checkBox">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <div class="checks">
+                            <div class="checkBox">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            </div>
+                            <img id="moon" class="hoursIcons" src="../assets/Night.png">
+                            <!-- <label class="form-check-label" for="flexCheckChecked">N</label> -->
                         </div>
-                        <img id="moon" class="hoursIcons" src="../assets/Night.png">
-                        <!-- <label class="form-check-label" for="flexCheckChecked">N</label> -->
                     </div>
-                </form>
-            </div> 
-            <div class="daysDiv">
-                <div class="imgsDiv">
-                    <img src="../assets/Calendar.png">
-                </div>
-                <p class="indTitles" data-bs-toggle="dropdown" aria-expanded="false">Días</p>
-                <form id="daysChecks" onsubmit="checkFunction()" method="post">
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="flexCheckDefault">L</label>
+                </div> 
+                <div class="daysDiv">
+                    <div class="imgsDiv">
+                        <img src="../assets/Calendar.png">
                     </div>
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="" >
-                        <label class="form-check-label" for="flexCheckChecked">M</label>
-                    </div>
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="" >
-                        <label class="form-check-label" for="flexCheckChecked">X</label>
-                    </div>
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="flexCheckChecked">J</label>
-                    </div>
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="flexCheckChecked">V</label>
-                    </div>
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="flexCheckChecked">S</label>
-                    </div>
-                    <div class="checks">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="flexCheckChecked">D</label>
-                    </div>
-                </form>
-            </div>     
-            <div class="daysDiv">
-                <div class="imgsDiv">
-                    <img src="../assets/Car.png">
-                </div>
-                <p class="indTitles" data-bs-toggle="dropdown" aria-expanded="false">Especiales</p>
-                <form id="daysChecks" onsubmit="checkFunction()" method="post">
-                    <div class="checks">
-                        <div class="checkBox">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                    <p class="indTitles" data-bs-toggle="dropdown" aria-expanded="false">Días</p>
+                    <div id="daysChecks">
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="1">
+                            <label class="form-check-label" for="flexCheckDefault">L</label>
                         </div>
-                        <img class="hoursIcons" src="../assets/Cook.png">
-                        <!-- <label class="form-check-label" for="flexCheckDefault">M</label> -->
-                    </div>
-                    <div class="checks">
-                        <div class="checkBox">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="" >
+                            <label class="form-check-label" for="flexCheckChecked">M</label>
                         </div>
-                        <img class="hoursIcons" src="../assets/Dog.png">
-                        <!-- <label class="form-check-label" for="flexCheckChecked">T</label> -->
-                    </div>
-                    <div class="checks">
-                        <div class="checkBox">
-                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="" >
+                            <label class="form-check-label" for="flexCheckChecked">X</label>
                         </div>
-                        <img id="driving" class="hoursIcons" src="../assets/Driving.png">
-                        <!-- <label class="form-check-label" for="flexCheckChecked">N</label> -->
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" for="flexCheckChecked">J</label>
+                        </div>
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" for="flexCheckChecked">V</label>
+                        </div>
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" for="flexCheckChecked">S</label>
+                        </div>
+                        <div class="checks">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <label class="form-check-label" for="flexCheckChecked">D</label>
+                        </div>
                     </div>
-                </form>
-            </div> 
+                </div>     
+                <div class="daysDiv">
+                    <div class="imgsDiv">
+                        <img src="../assets/Car.png">
+                    </div>
+                    <p class="indTitles" data-bs-toggle="dropdown" aria-expanded="false">Especiales</p>
+                    <div id="daysChecks">
+                        <div class="checks">
+                            <div class="checkBox">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            </div>
+                            <img class="hoursIcons" src="../assets/Cook.png">
+                            <!-- <label class="form-check-label" for="flexCheckDefault">M</label> -->
+                        </div>
+                        <div class="checks">
+                            <div class="checkBox">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            </div>
+                            <img class="hoursIcons" src="../assets/Dog.png">
+                            <!-- <label class="form-check-label" for="flexCheckChecked">T</label> -->
+                        </div>
+                        <div class="checks">
+                            <div class="checkBox">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            </div>
+                            <img id="driving" class="hoursIcons" src="../assets/Driving.png">
+                            <!-- <label class="form-check-label" for="flexCheckChecked">N</label> -->
+                        </div>
+                    </div>
+                </div> 
+            </form>
         </div>
         <div id="submButton">
-            <button type="submit" (click)="checkFunction()">Siguiente</button>
+            <button type="submit">Siguiente</button>
         </div>
     </div>
     

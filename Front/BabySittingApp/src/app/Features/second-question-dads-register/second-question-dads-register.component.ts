@@ -27,32 +27,10 @@ export class SecondQuestionDadsRegisterComponent {
       this.quantBabysChoosen = [];
     }
     this.quantBaby = value;
-    console.log(this.quantBaby);
     for (let i=0; i < this.quantBaby; i++) {
       this.quantBabysChoosen[i] = i+1;
     }
-    console.log(this.quantBabysChoosen);
   }
-
-  submitButton() {
-    console.log(this.baby1Name);
-    console.log(this.baby1Desc);
-    console.log(this.baby2Name);
-    console.log(this.baby2Desc);
-    console.log(this.baby3Name);
-    console.log(this.baby3Desc);
-    console.log(this.baby4Name);
-    console.log(this.baby4Desc);
-    console.log(this.quantBabysChoosen);
-    if (!this.baby1Name || !this.baby1Desc) {
-      alert("No completó todos los camps");
-    } else {
-      localStorage.setItem("babyName", this.baby1Name);
-      localStorage.setItem("babyDesc", this.baby1Desc);
-      this.router.navigateByUrl('/ThirdQuestionDadsRegister'); 
-    }
-  }
-
   changeText(text: string, position: number ) {
     if (position = 1) {
       this.baby1Name = text;
@@ -60,6 +38,14 @@ export class SecondQuestionDadsRegisterComponent {
     if (position = 2) {
       this.baby2Name = text;
     }
-    console.log(this.baby1Name)
   }
+  submitButton() {
+    if (!this.baby1Name || !this.baby1Desc) {
+      alert("No completó todos los campos");
+    } else {
+      localStorage.setItem("babyName", this.baby1Name);
+      localStorage.setItem("babyDesc", this.baby1Desc);
+      this.router.navigateByUrl('/ThirdQuestionDadsRegister'); 
+    }
+  } 
 }
