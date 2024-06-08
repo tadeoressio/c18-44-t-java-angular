@@ -37,8 +37,8 @@ public abstract class User {
  // @Column(name = "day")
  // private Set<Day> availableDays = EnumSet.noneOf(Day.class);
 
-   // private boolean availability;
-   // private boolean day;
+ //// private boolean availability;
+ //// private boolean day;
 
     //private TimeSlot timeSlot;
 

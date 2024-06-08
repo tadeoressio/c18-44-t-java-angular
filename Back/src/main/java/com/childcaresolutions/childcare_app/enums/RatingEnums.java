@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 
 
 public enum RatingEnums {
-       ONE_STAR(1),
+       ONE_STARS(1),
     TWO_STARS(2),
     THREE_STARS(3),
     FOUR_STARS(4),
@@ -24,4 +24,25 @@ public enum RatingEnums {
           public int getValue() {
         return value;
     }
+
+
+    public static RatingEnums fromValue(int value) {
+               for (RatingEnums rating : RatingEnums.values()) {
+                   if(rating.getValue() == value){
+                       return rating;
+                   }
+               }
+               throw new IllegalArgumentException("Invalid value: " + value);    }
+
+    public static boolean isValidRating (int value) {
+               for (RatingEnums rating : RatingEnums.values()) {
+                   if(rating.getValue() == value){
+                       return true;
+                   }
+               }
+               return false;
+    }
+
+
+
 }

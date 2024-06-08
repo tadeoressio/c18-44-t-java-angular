@@ -15,5 +15,4 @@ public interface ParentMapper {
 
     ResponseParent parentToRespose (Parent parent);
 
-
 }

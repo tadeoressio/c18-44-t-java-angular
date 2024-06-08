@@ -10,19 +10,21 @@ import com.childcaresolutions.childcare_app.model.dto.request.RequestCreateParen
 import com.childcaresolutions.childcare_app.model.dto.request.RequestEditParent;
 import com.childcaresolutions.childcare_app.model.dto.respose.ResponseParent;
 import com.childcaresolutions.childcare_app.service.ParentService;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 
+
+@AllArgsConstructor
 @Validated
 @RequestMapping(value = "/api/parents")
 @RestController
 public class ParentController {
-    @Autowired
+
     private ParentService parentService;
 
     @PostMapping("/register")
