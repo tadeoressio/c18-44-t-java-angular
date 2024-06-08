@@ -8,14 +8,18 @@ import { Router } from '@angular/router';
 })
 export class FirstQuestionRegisterComponent {
 
+  dads: string = "dads"
+  babysitters: string = "babysitters"
+
   constructor(private router: Router) { } 
 
+  // revisar porqué no se ejecuta setItem
   RedirectBabySittersAfterFirstQuestion () {
-    localStorage.setItem( 'RegProfile', 'BabySitter');
+    localStorage.setItem("regProfile", this.babysitters);
     this.router.navigateByUrl('/RegisterBabySitters'); 
   }
   RedirectDadsAfterFirstQuestion () {
-    localStorage.setItem( 'RegProfile', 'Dads');
+    localStorage.setItem("regProfile", this.babysitters);
     this.router.navigateByUrl('/SecondQuestionDadsRegister'); 
   }
 }

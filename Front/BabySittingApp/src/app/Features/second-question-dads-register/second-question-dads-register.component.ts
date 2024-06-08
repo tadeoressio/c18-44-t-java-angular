@@ -21,6 +21,9 @@ export class SecondQuestionDadsRegisterComponent {
     baby3Desc: string = "";
     baby4Name: string = "";
     baby4Desc: string = "";
+    ngOnInit() {
+      localStorage.clear();
+    }
 
   desplegateBabyInfo(value: number) {
     if(value < this.quantBabysChoosen.length) {
@@ -39,13 +42,42 @@ export class SecondQuestionDadsRegisterComponent {
       this.baby2Name = text;
     }
   }
+  // lo siguiente debería ser en bucle y no tener tanto código
   submitButton() {
     if (!this.baby1Name || !this.baby1Desc) {
       alert("No completó todos los campos");
-    } else {
-      localStorage.setItem("babyName", this.baby1Name);
-      localStorage.setItem("babyDesc", this.baby1Desc);
-      this.router.navigateByUrl('/ThirdQuestionDadsRegister'); 
+    }
+    if (this.baby1Name && this.baby1Desc && !this.baby2Name && !this.baby2Desc) {
+      localStorage.setItem("baby1Name", this.baby1Name);
+      localStorage.setItem("baby1Desc", this.baby1Desc);
+      this.router.navigateByUrl('/ThirdQuestionDadsRegister');
+    }
+    if (this.baby2Name && this.baby2Desc && !this.baby3Name && !this.baby3Desc) {
+      localStorage.setItem("baby1Name", this.baby1Name);
+      localStorage.setItem("baby1Desc", this.baby1Desc);
+      localStorage.setItem("baby2Name", this.baby2Name);
+      localStorage.setItem("baby2Desc", this.baby2Desc);
+      this.router.navigateByUrl('/ThirdQuestionDadsRegister');
+    }
+    if (this.baby3Name && this.baby3Desc && !this.baby4Name && !this.baby4Desc) {
+      localStorage.setItem("baby1Name", this.baby1Name);
+      localStorage.setItem("baby1Desc", this.baby1Desc);
+      localStorage.setItem("baby2Name", this.baby2Name);
+      localStorage.setItem("baby2Desc", this.baby2Desc);
+      localStorage.setItem("baby3Name", this.baby3Name);
+      localStorage.setItem("baby3Desc", this.baby3Desc);
+      this.router.navigateByUrl('/ThirdQuestionDadsRegister');
+    }
+    if (this.baby4Name && this.baby4Desc) {
+      localStorage.setItem("baby1Name", this.baby1Name);
+      localStorage.setItem("baby1Desc", this.baby1Desc);
+      localStorage.setItem("baby2Name", this.baby2Name);
+      localStorage.setItem("baby2Desc", this.baby2Desc);
+      localStorage.setItem("baby3Name", this.baby3Name);
+      localStorage.setItem("baby3Desc", this.baby3Desc);
+      localStorage.setItem("baby4Name", this.baby4Name);
+      localStorage.setItem("baby4Desc", this.baby4Desc);
+      this.router.navigateByUrl('/ThirdQuestionDadsRegister');
     }
   } 
 }
