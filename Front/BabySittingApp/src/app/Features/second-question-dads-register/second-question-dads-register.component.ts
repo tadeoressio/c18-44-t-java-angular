@@ -21,6 +21,7 @@ export class SecondQuestionDadsRegisterComponent {
     baby3Desc: string = "";
     baby4Name: string = "";
     baby4Desc: string = "";
+    babysInfo: any[] = [];
     ngOnInit() {
       localStorage.clear();
     }
@@ -34,49 +35,30 @@ export class SecondQuestionDadsRegisterComponent {
       this.quantBabysChoosen[i] = i+1;
     }
   }
-  changeText(text: string, position: number ) {
-    if (position = 1) {
-      this.baby1Name = text;
-    }
-    if (position = 2) {
-      this.baby2Name = text;
-    }
-  }
   // lo siguiente debería ser en bucle y no tener tanto código
   submitButton() {
     if (!this.baby1Name || !this.baby1Desc) {
       alert("No completó todos los campos");
     }
-    if (this.baby1Name && this.baby1Desc && !this.baby2Name && !this.baby2Desc) {
-      localStorage.setItem("baby1Name", this.baby1Name);
-      localStorage.setItem("baby1Desc", this.baby1Desc);
+    if (this.baby1Name && this.baby1Desc && !this.baby2Name && !this.baby2Desc && !this.baby3Name && !this.baby3Desc && !this.baby4Name && !this.baby4Desc) {
+      this.babysInfo.push(this.baby1Name, this.baby1Desc);
+      localStorage.setItem("babysInfo", JSON.stringify(this.babysInfo));
       this.router.navigateByUrl('/ThirdQuestionDadsRegister');
+
     }
-    if (this.baby2Name && this.baby2Desc && !this.baby3Name && !this.baby3Desc) {
-      localStorage.setItem("baby1Name", this.baby1Name);
-      localStorage.setItem("baby1Desc", this.baby1Desc);
-      localStorage.setItem("baby2Name", this.baby2Name);
-      localStorage.setItem("baby2Desc", this.baby2Desc);
+    if (this.baby2Name && this.baby2Desc && !this.baby3Name && !this.baby3Desc && !this.baby4Name && !this.baby4Desc) {
+      this.babysInfo.push(this.baby1Name, this.baby1Desc, this.baby2Name, this.baby2Desc);
+      localStorage.setItem("babysInfo", JSON.stringify(this.babysInfo));
       this.router.navigateByUrl('/ThirdQuestionDadsRegister');
     }
     if (this.baby3Name && this.baby3Desc && !this.baby4Name && !this.baby4Desc) {
-      localStorage.setItem("baby1Name", this.baby1Name);
-      localStorage.setItem("baby1Desc", this.baby1Desc);
-      localStorage.setItem("baby2Name", this.baby2Name);
-      localStorage.setItem("baby2Desc", this.baby2Desc);
-      localStorage.setItem("baby3Name", this.baby3Name);
-      localStorage.setItem("baby3Desc", this.baby3Desc);
+      this.babysInfo.push(this.baby1Name, this.baby1Desc, this.baby2Name, this.baby2Desc, this.baby3Name, this.baby3Desc);
+      localStorage.setItem("babysInfo", JSON.stringify(this.babysInfo));
       this.router.navigateByUrl('/ThirdQuestionDadsRegister');
     }
     if (this.baby4Name && this.baby4Desc) {
-      localStorage.setItem("baby1Name", this.baby1Name);
-      localStorage.setItem("baby1Desc", this.baby1Desc);
-      localStorage.setItem("baby2Name", this.baby2Name);
-      localStorage.setItem("baby2Desc", this.baby2Desc);
-      localStorage.setItem("baby3Name", this.baby3Name);
-      localStorage.setItem("baby3Desc", this.baby3Desc);
-      localStorage.setItem("baby4Name", this.baby4Name);
-      localStorage.setItem("baby4Desc", this.baby4Desc);
+      this.babysInfo.push(this.baby1Name, this.baby1Desc, this.baby2Name, this.baby2Desc, this.baby3Name, this.baby3Desc, this.baby4Name, this.baby4Desc);
+      localStorage.setItem("babysInfo", JSON.stringify(this.babysInfo));
       this.router.navigateByUrl('/ThirdQuestionDadsRegister');
     }
   } 

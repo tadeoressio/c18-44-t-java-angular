@@ -1,0 +1,80 @@
+#MainDiv {
+    display: flex;
+    justify-content: center;
+    height: 85%;
+    margin: 0;
+    margin-top: 2%;
+}
+#MenuDiv {
+    height: 85%;
+    width: 60%;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+#profileImg {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+}
+#loadImgDiv {
+    width: 150px;
+}
+#imgDiv {
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+#textImgDiv {
+    display: flex;
+    justify-content: center;
+}
+#leftCol {
+    margin-right: 10%;
+}
+#inputsDiv {
+    display: flex;
+    justify-content: center;
+    
+}
+#submButton button {
+    margin-top: 72px;
+    width: 100px;
+}
+#buttonDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+#regBut {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.indInput {
+    width: 100%;
+}
+img {
+    width: 100px;
+    padding: 5px;
+    border-radius: 30px;
+}
+p {
+    margin-top: 5%;    
+    margin-bottom: 2%;
+    padding-left: 3%;
+    color: white;
+}
+input {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: none;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f8acac;
+    color: white;
+    align-items: center;
+    padding-left: 3%;
+}

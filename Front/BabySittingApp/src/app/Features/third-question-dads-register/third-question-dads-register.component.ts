@@ -19,7 +19,7 @@ export class ThirdQuestionDadsRegisterComponent {
     checkHoursList: boolean[] = [false, false, false];
 
     ngOnInit() {
-      if(!localStorage.getItem("baby1Name") || !localStorage.getItem("baby1Desc")) {
+      if(!localStorage.getItem("babysInfo") || !localStorage.getItem("babysInfo")) {
         alert("Primero debe indicar información sobre a quién cuidar")
         this.router.navigateByUrl('/SecondQuestionDadsRegister');
       }
@@ -138,8 +138,8 @@ export class ThirdQuestionDadsRegisterComponent {
     //   alert("Debe completar los campos")
     // }
     localStorage.setItem("skillsChoosed", JSON.stringify(this.checkSkillList));
-    localStorage.setItem("DaysChoosed", JSON.stringify(this.checkDaysList));
+    localStorage.setItem("daysChoosed", JSON.stringify(this.checkDaysList));
     localStorage.setItem("hoursChoosed", JSON.stringify(this.checkHoursList));
-    this.router.navigateByUrl('/ThirdQuestionDadsRegister'); 
+    this.router.navigateByUrl('/FinalDadsRegister'); 
   }
 }

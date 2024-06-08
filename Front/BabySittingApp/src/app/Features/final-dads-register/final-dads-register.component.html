@@ -1,0 +1,53 @@
+<app-nav-bar></app-nav-bar>
+<div id="MainDiv" class="form-group">
+    <div id="MenuDiv">
+        <div id="profileImg">
+            <div id="loadImgDiv">
+                <div id="imgDiv">
+                    <img src="./assets/User.png">
+                </div>
+                <div id="textImgDiv">
+                    <p>Cargue una imagen</p>
+                </div>
+            </div>
+        </div>
+        <div id="inputsDiv">
+            <div id="leftCol">
+                <div class="indInput">
+                    <p>Nombre y apellido</p>
+                    <input type="text" [(ngModel)]="nameAndLast">
+                </div>
+                <div class="indInput">
+                    <p>Contraseña</p>
+                    <input type="password" [(ngModel)]="pass">
+                </div>
+                <div class="indInput">
+                    <p>Ubicación</p>
+                    <input type="text" [(ngModel)]="location">
+                </div>
+                
+            </div>
+            <div id="rightCol">
+                <div class="indInput">
+                    <p>Correo</p>
+                    <input type="mail" [(ngModel)]="mail">
+                </div>
+                
+                <div class="indInput">
+                    <p>Repita contraseña</p>
+                    <input type="password" [(ngModel)]="pass2">
+                </div>
+                
+                <div class="indInput">
+                    <p>Número telefónico</p>
+                    <input type="text" [(ngModel)]="telNumber">
+                </div>
+                
+            </div>
+        </div>
+        <div id="buttonDiv">
+            <input id="regBut" type="button" (click)="submitButton()" value="Registrarme">
+        </div>
+        
+    </div>
+</div>
