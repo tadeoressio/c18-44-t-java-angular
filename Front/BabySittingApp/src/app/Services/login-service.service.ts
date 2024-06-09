@@ -18,4 +18,7 @@ export class LoginServiceService {
     }
     return this.HttpService.post<any>('/url', body)
   }
+  prueba() {
+    return this.HttpService.get<any>('https://pokeapi.co/api/v2/pokemon/ditto')
+  }
 }
