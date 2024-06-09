@@ -12,6 +12,7 @@ import { FinalDadsRegisterComponent } from './Features/final-dads-register/final
 import { SecondQuestionBabySittersRegisterComponent } from './Features/second-question-baby-sitters-register/second-question-baby-sitters-register.component';
 import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-question-register-baby-sitters/third-question-register-baby-sitters.component';
 import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
+import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
 
 const routes: Routes = [
   {
@@ -61,6 +62,14 @@ const routes: Routes = [
   {
     path: 'FinalBabySittersRegister',
     component: FinalBabySittersRegisterComponent
+  },
+  {
+    path: 'FinalBabySittersRegister',
+    component: FinalBabySittersRegisterComponent
+  },
+  {
+    path: 'BabySittersList',
+    component: BabySittersListComponent
   },
 ];
 
