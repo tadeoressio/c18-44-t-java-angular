@@ -16,7 +16,7 @@ export class FirstQuestionRegisterComponent {
   // revisar porqué no se ejecuta setItem
   RedirectBabySittersAfterFirstQuestion () {
     localStorage.setItem("regProfile", this.babysitters);
-    this.router.navigateByUrl('/RegisterBabySitters'); 
+    this.router.navigateByUrl('/SecondQuestionBabySittersRegister'); 
   }
   RedirectDadsAfterFirstQuestion () {
     localStorage.setItem("regProfile", this.babysitters);

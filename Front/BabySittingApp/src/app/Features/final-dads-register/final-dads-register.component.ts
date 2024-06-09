@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-final-dads-register',
@@ -8,7 +9,11 @@ import { Router } from '@angular/router';
 })
 export class FinalDadsRegisterComponent {
 
-  constructor(private router: Router) {} 
+  constructor(private router: Router, private formBuilder: FormBuilder) {} 
+
+  images: any = ["./assets/User.png"];
+  uploadedImages: string[] = ["./assets/User.png"];
+  textoCarga: string = '';
 
   nameAndLast: string = "";
   mail: string = "";
@@ -17,6 +22,28 @@ export class FinalDadsRegisterComponent {
   location: string = "";
   telNumber: string = "";
   userInfo: any[] = [];
+
+  reemplazarImagen(event: any): void {
+    const files = event.target.files;
+    this.images = files;
+    this.uploadedImages.length = 0;
+    if (files) {
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        if (file.type.startsWith('image/')) {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = () => {
+            this.uploadedImages.push(reader.result as string);
+          }; 
+        }
+        if (i == files.length-1) {
+          this.textoCarga = '(' + files.length + ') Imágenes seleccionadas'
+        }
+      }    
+    }
+   
+  }
 
   submitButton() {
     if (this.nameAndLast != "" && this.mail != "" && this.pass != "" && this.pass2 != "" && this.location != "" && this.telNumber != "") {
