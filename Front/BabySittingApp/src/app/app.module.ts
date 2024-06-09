@@ -30,6 +30,9 @@ import { SecondQuestionDadsRegisterComponent } from './features/second-question-
 import { ThirdQuestionDadsRegisterComponent } from './Features/third-question-dads-register/third-question-dads-register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FinalDadsRegisterComponent } from './Features/final-dads-register/final-dads-register.component';
+import { SecondQuestionBabySittersRegisterComponent } from './Features/second-question-baby-sitters-register/second-question-baby-sitters-register.component';
+import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-question-register-baby-sitters/third-question-register-baby-sitters.component';
+import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { FinalDadsRegisterComponent } from './Features/final-dads-register/final
     SecondQuestionDadsRegisterComponent,
     ThirdQuestionDadsRegisterComponent,
     FinalDadsRegisterComponent,
+    SecondQuestionBabySittersRegisterComponent,
+    ThirdQuestionRegisterBabySittersComponent,
+    FinalBabySittersRegisterComponent,
   ],
   imports: [
     BrowserModule,

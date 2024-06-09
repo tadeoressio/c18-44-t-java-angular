@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-final-dads-register',
-  templateUrl: './final-dads-register.component.html',
-  styleUrls: ['./final-dads-register.component.css']
+  selector: 'app-final-baby-sitters-register',
+  templateUrl: './final-baby-sitters-register.component.html',
+  styleUrls: ['./final-baby-sitters-register.component.css']
 })
-export class FinalDadsRegisterComponent {
-
+export class FinalBabySittersRegisterComponent {
+  
   constructor(private router: Router) {} 
-
+  
   nameAndLast: string = "";
   mail: string = "";
   pass: string = "";
@@ -23,7 +23,7 @@ export class FinalDadsRegisterComponent {
       if (this.pass != this.pass2) {
         alert("Las contraseñas no coinciden");
       } else {
-        this.userInfo.push(localStorage.getItem("babysInfo"));
+        this.userInfo.push(localStorage.getItem("expInfo"));
         this.userInfo.push(localStorage.getItem("hoursChoosed"));
         this.userInfo.push(localStorage.getItem("skillsChoosed"));
         this.userInfo.push(localStorage.getItem("daysChoosed"));
@@ -40,9 +40,9 @@ export class FinalDadsRegisterComponent {
         this.userInfo.push(this.pass);
         this.userInfo.push(this.location);
         this.userInfo.push(this.telNumber);
+        alert("Se ha registrado correctamente");
+        this.router.navigateByUrl('HomePage')
       }
-      alert("Se ha registrado correctamente");
-      this.router.navigateByUrl('HomePage')
     }
   }
 }

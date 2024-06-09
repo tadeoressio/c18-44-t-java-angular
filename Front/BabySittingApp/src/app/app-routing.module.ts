@@ -9,6 +9,9 @@ import { LoginPageComponent } from './Features/login-page/login-page.component';
 import { SecondQuestionDadsRegisterComponent } from './features/second-question-dads-register/second-question-dads-register.component';
 import { ThirdQuestionDadsRegisterComponent } from './Features/third-question-dads-register/third-question-dads-register.component';
 import { FinalDadsRegisterComponent } from './Features/final-dads-register/final-dads-register.component';
+import { SecondQuestionBabySittersRegisterComponent } from './Features/second-question-baby-sitters-register/second-question-baby-sitters-register.component';
+import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-question-register-baby-sitters/third-question-register-baby-sitters.component';
+import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
 
 const routes: Routes = [
   {
@@ -46,7 +49,19 @@ const routes: Routes = [
   {
     path: 'FinalDadsRegister',
     component: FinalDadsRegisterComponent
-  }
+  },
+  {
+    path: 'SecondQuestionBabySittersRegister',
+    component: SecondQuestionBabySittersRegisterComponent
+  },
+  {
+    path: 'ThirdQuestionBabySittersRegister',
+    component: ThirdQuestionRegisterBabySittersComponent
+  },
+  {
+    path: 'FinalBabySittersRegister',
+    component: FinalBabySittersRegisterComponent
+  },
 ];
 
 @NgModule({

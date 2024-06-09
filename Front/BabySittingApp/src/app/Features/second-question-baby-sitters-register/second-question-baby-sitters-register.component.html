@@ -1,0 +1,34 @@
+<app-nav-bar></app-nav-bar>
+<div id="MainDiv" class="form-group">
+    <div id="MenuDiv">
+        <p>Cuéntanos sobre tu experiencia</p>
+        <div id="imgDiv">
+            <img src="../assets/Baby.png">
+        </div>        
+        <div id="FormDiv">
+            <div id="InputDiv">
+                <div id="quantBabyDiv">
+                    <label id="quantBaby" for="quantBaby">Tienes experiencia <br> cuidando niños/as:</label>
+                    <select [(ngModel)]="expBool" (change)="expBoolean(expBool)" name="quantBaby" id="quantBaby">
+                        <option>Si</option>
+                        <option>No</option>
+                    </select>
+                </div>
+                <div id="babysContainer">
+                    <div *ngIf="expChoosed" class="babysInfo">
+                        <div id="babyCards">
+                            <div class="babyCard">
+                                <textarea class="textAreaID" [(ngModel)]="expText" placeholder="Cuéntanos sobre ti y tus experiencias de trabajo previas"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div id="submButton">
+            <button type="submit" (click)="submitButton()">Siguiente</button>
+        </div>
+    </div>
+    
+</div>
