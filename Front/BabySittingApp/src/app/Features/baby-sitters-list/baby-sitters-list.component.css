@@ -28,7 +28,7 @@
     border: 1px solid lightgrey;
     margin-left: 37px;
 }
-button {
+button,#buttonCard {
     width: 120px;
     background-color: #e6a9a9;
     border: none
@@ -39,6 +39,9 @@ a:hover {
     color: white;
     border: none;
     border-radius: 8px;
+}
+#buttonCard:hover {
+    background-color: grey;
 }
 .dropdown-menu {
     padding-top: 0;
@@ -54,7 +57,7 @@ a:hover {
 #cardsBabySitters {
     display: flex;
     justify-content: center;
-    width: 50%;
+    width:900px;
 }
 #profileBabySitter {
     display: flex;
@@ -70,4 +73,37 @@ a:hover {
 }
 #filterButton {
     margin-left: 2%;
+}
+#indCardBabySitterImg {
+    width: 200px;
+    border-radius: 10px;
+}
+#card {
+    display: flex;
+    justify-content: center;
+    
+}
+#cardInfo {
+    margin-left: 20px;
+    display: block;
+    width: 300px;
+}
+#card1 {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+}
+.card-text {
+    margin: 0;
+}
+#cardButton {
+    display: flex;
+    justify-content: end;
+    height: 50px;
+    align-items: center;
+    margin-top: 80px;
+}
+.card-text {
+    color:#e6a9a9;
+    font-weight: 600;
 }
