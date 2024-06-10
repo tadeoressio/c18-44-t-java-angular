@@ -4,14 +4,14 @@
         <div id="FormDiv">
             <div id="InputDiv">
                 <input [(ngModel)]="UserEmail" id="inputEmail" type="email" class="form-control" placeholder="Correo">
-                <input [(ngModel)]="UserPass"id="inputPass" type="password" placeholder="Contraseña" class="form-control" (keyup.enter)="SendLoginInfo()">
+                <input [(ngModel)]="UserPass"id="inputPass" type="password" placeholder="Contraseña" class="form-control">
                 <div id="checksDiv">
                     <div id="rememberDiv">
                         <input id="rememberCheck" type="checkbox">
                         <label>Recordarme</label>
                     </div>
                 </div>
-                <button id="loginButton" type="button" (click)="SendLoginInfo()">Inicia sesión</button>
+                <button id="loginButton" type="button" (click)="SendLoginInfo(UserEmail, UserPass)">Inicia sesión</button>
                 
                 <div id="forgottenDiv">
                     <a href="HomePage">¿Olvidó su contraseña?</a>

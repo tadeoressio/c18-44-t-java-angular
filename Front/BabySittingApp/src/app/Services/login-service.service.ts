@@ -11,14 +11,12 @@ export class LoginServiceService {
 
   constructor(private HttpService: HttpClient) { }
 
-  Login(UserMail: string, UserPassword: string) {
+  Login(email: string, password: string) {
     const body = {
-      mail: UserMail,
-      password: UserPassword,
+      email: email,
+      password: password,
     }
-    return this.HttpService.post<any>('/url', body)
-  }
-  prueba() {
-    return this.HttpService.get<any>('https://pokeapi.co/api/v2/pokemon/ditto')
+    console.log(body)
+    return this.HttpService.post<any>('http://localhost:8080/login/login', body);
   }
 }

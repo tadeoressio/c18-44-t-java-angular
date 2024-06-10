@@ -33,9 +33,6 @@ export class NavBarComponent {
   redirectTest() {
 
   }
-  ngOnInit() {
-    this.loginService.prueba().subscribe(res => {
-      console.log(res);
-    })
-  }
+  
+ 
 }
