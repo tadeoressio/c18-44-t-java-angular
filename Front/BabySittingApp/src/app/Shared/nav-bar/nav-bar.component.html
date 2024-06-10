@@ -12,9 +12,9 @@
         <app-not-menu *ngIf="LogDads || LogBabySitters"></app-not-menu> -->
         <!-- <app-logged-menu *ngIf="LogDads || LogBabySitters"></app-logged-menu>
         <app-login-menu *ngIf="!LogDads && !LogBabySitters"></app-login-menu> -->
-        <button  (click)="RedirectLogin()">Inicia sesión</button>
-        <button  (click)="RedirectRegister()">Regístrate</button>
-        <div *ngIf(logDads || LogBabySitters) class="btn-group">
+        <button *ngIf="!LogDads && !LogBabySitters" (click)="RedirectLogin()">Inicia sesión</button>
+        <button *ngIf="!LogDads && !LogBabySitters" (click)="RedirectRegister()">Regístrate</button>
+        <div *ngIf="LogDads || LogBabySitters" class="btn-group">
             <img  data-bs-toggle="dropdown" aria-expanded="false" id="loggedImg"src="./assets/Profile1.jpg"type="button">
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Perfil</a></li>
@@ -22,7 +22,5 @@
               <li><a class="dropdown-item" (click)="logOut()">Cerrar sesión</a></li>
             </ul>
           </div>
-        
-        <!-- <p-button (click)="RedirectRegister()" label='Regístrate'/> -->
     </div>
 </div>

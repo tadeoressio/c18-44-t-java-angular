@@ -1,5 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginServiceService } from 'src/app/Services/login-service.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,10 +9,16 @@ import { Router } from '@angular/router';
   })
 export class HomePageComponent implements OnInit {
     
-    constructor(private router: Router){}
+    LogDads: boolean = false;
+    LogBabySitter: boolean = false;
+
+    constructor(private router: Router, private loginService: LoginServiceService){}
 
     ngOnInit() {
-        
+        this.LogDads = this.loginService.DadLoggedStatus();
+        console.log("padre: " + this.LogDads)
+        this.LogBabySitter = this.loginService.BabySitterLoggedStatus();
+        console.log("niñera: " + this.LogBabySitter)
     }
 
     redirectBabySitterReg() {

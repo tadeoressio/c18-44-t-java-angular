@@ -19,23 +19,25 @@ export class NavBarComponent {
 
   ngOnInit() {
     let infoLocal = localStorage.getItem("loggedUserInfo")
-    if(infoLocal) {      
+    if(infoLocal) {     
       let newObject = JSON.parse(infoLocal);
       if(newObject.infoFamily) {
-        this.LogDads = true;
+        this.LogDads = this.loginService.DadLogged();
       }
       if(newObject.experiences) {
-        this.LogBabySitters = true;
+        this.LogBabySitters = this.loginService.BabySitterLogged();
       }
-      else {
-        this.LogBabySitters = false;
+      if(!newObject.infoFamily && !newObject.experiences) {
         this.LogDads = false;
+        this.LogBabySitters = false;
       }
     }
   }
   logOut() {
     this.LogBabySitters = false;
     this.LogDads = false;
+    this.loginService.LogOut();
+    localStorage.clear();
     this.router.navigateByUrl('/HomePage');
   }
   RedirectRegister () {

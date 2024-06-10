@@ -8,6 +8,8 @@ export class LoginServiceService {
 
   UserMail: string = '';
   UserPassword: string = '';
+  UserDadLogged: boolean = false;
+  UserBabySitterLogged: boolean = false;
 
   constructor(private HttpService: HttpClient) { }
 
@@ -18,5 +20,25 @@ export class LoginServiceService {
     }
     console.log(body)
     return this.HttpService.post<any>('http://localhost:8080/login/login', body);
+  }
+  DadLogged() {
+    this.UserDadLogged = true;
+    this.UserBabySitterLogged = false;
+    return this.UserDadLogged;
+  }
+  BabySitterLogged() {
+    this.UserDadLogged = false;
+    this.UserBabySitterLogged = true;
+    return this.UserBabySitterLogged;
+  }
+  DadLoggedStatus() {
+    return this.UserDadLogged;
+  }
+  BabySitterLoggedStatus() {
+    return this.UserBabySitterLogged;
+  }
+  LogOut() {
+    this.UserDadLogged = false;
+    this.UserBabySitterLogged = false;
   }
 }
