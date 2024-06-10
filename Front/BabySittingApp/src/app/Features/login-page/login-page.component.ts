@@ -16,9 +16,11 @@ export class LoginPageComponent {
 
   SendLoginInfo(UserEmail: string, UserPass: string) {     
     this.service.Login(this.UserEmail, this.UserPass).subscribe(res => {
-      console.log(res);
+      if(res) {
+        localStorage.clear();
+        localStorage.setItem("loggedUserInfo", JSON.stringify(res));
+        this.router.navigateByUrl("HomePage")
+      }
     })
   }
-  
-
 }

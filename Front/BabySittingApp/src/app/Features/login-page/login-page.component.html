@@ -3,8 +3,8 @@
     <div id="MenuDiv">
         <div id="FormDiv">
             <div id="InputDiv">
-                <input [(ngModel)]="UserEmail" id="inputEmail" type="email" class="form-control" placeholder="Correo">
-                <input [(ngModel)]="UserPass"id="inputPass" type="password" placeholder="Contraseña" class="form-control">
+                <input [(ngModel)]="UserEmail" id="inputEmail" type="email" (keyup.enter)="SendLoginInfo(UserEmail, UserPass)" class="form-control" placeholder="Correo">
+                <input [(ngModel)]="UserPass"id="inputPass" type="password" (keyup.enter)="SendLoginInfo(UserEmail, UserPass)" placeholder="Contraseña" class="form-control">
                 <div id="checksDiv">
                     <div id="rememberDiv">
                         <input id="rememberCheck" type="checkbox">
