@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 @Validated
 @RequestMapping(value ="/api/nanny")
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 public class NannyController {
 
     private NannyService nannyService;

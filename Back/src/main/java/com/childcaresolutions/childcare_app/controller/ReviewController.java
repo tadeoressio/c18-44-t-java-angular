@@ -11,6 +11,7 @@ import java.util.List;
 @RequestMapping(value = "/review")
 @AllArgsConstructor
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE, RequestMethod.OPTIONS})
 public class ReviewController {
 
     private final IReviewService reviewService;
