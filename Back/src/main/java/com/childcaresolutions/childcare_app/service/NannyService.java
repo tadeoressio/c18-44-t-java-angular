@@ -17,6 +17,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Service
 public class NannyService implements INannyService  {
@@ -127,4 +130,14 @@ public class NannyService implements INannyService  {
         nannyRepository.deleteById(id);
         return true;
     }
+
+    @Override
+    public List<ResponseNanny> getAllNannies() {
+        return nannyRepository.findAll()
+                .stream()
+                .map(nannyMapper::nannyToResponse)
+                .collect(Collectors.toList());
+    }
+
+
 }

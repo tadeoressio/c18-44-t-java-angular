@@ -14,6 +14,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @AllArgsConstructor
 @Validated
 @RequestMapping(value ="/api/nanny")
@@ -106,4 +108,9 @@ public class NannyController {
    // }
 //
 
+
+    @GetMapping
+    public List<ResponseNanny> getAllNannies() {
+        return nannyService.getAllNannies();
+    }
 }

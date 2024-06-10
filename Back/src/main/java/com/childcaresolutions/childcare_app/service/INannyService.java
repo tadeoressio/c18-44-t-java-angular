@@ -6,6 +6,8 @@ import com.childcaresolutions.childcare_app.model.dto.request.RequestCreateNanny
 import com.childcaresolutions.childcare_app.model.dto.request.RequestEditNanny;
 import com.childcaresolutions.childcare_app.model.dto.respose.ResponseNanny;
 
+import java.util.List;
+
 public interface INannyService {
 
     ResponseNanny createNanny (RequestCreateNanny requestCreateNanny);
@@ -15,5 +17,7 @@ public interface INannyService {
     ResponseNanny updateNanny (RequestEditNanny requestUpdateNanny);
 
     Boolean toogleDeleteNanny(Long id);
-    
+
+    List<ResponseNanny> getAllNannies();
+
 }
