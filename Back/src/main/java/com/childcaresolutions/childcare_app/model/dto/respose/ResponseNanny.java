@@ -2,10 +2,12 @@ package com.childcaresolutions.childcare_app.model.dto.respose;
 
 import com.childcaresolutions.childcare_app.enums.Day;
 import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.childcaresolutions.childcare_app.model.Review;
 import com.childcaresolutions.childcare_app.model.Skill;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Set;
 
 public record ResponseNanny (
@@ -24,5 +26,7 @@ public record ResponseNanny (
         Set<Skill> skills,
         Set<Day> availableDaysN,
         TimeSlot timeSlotN
+       // List<Review> reviews
+
 ){
 }

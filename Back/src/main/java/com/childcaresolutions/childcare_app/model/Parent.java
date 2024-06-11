@@ -4,6 +4,8 @@ package com.childcaresolutions.childcare_app.model;
 import com.childcaresolutions.childcare_app.enums.Day;
 import com.childcaresolutions.childcare_app.enums.RoleEnum;
 import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.*;
@@ -45,6 +47,10 @@ public class Parent extends User {
 
     //Un padre puede tener muchos hijos
      @OneToMany(mappedBy = "parent")
+
+     //@JsonIgnore
+     //@JsonManagedReference
+     //@JsonIgnoreProperties(value="parent")
      private List<Child> childrens;
      
     //Un padre puede tener muchas solicitudes

@@ -3,10 +3,12 @@ package com.childcaresolutions.childcare_app.model.dto.respose;
 import com.childcaresolutions.childcare_app.enums.Day;
 
 import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.childcaresolutions.childcare_app.model.Child;
 import com.childcaresolutions.childcare_app.model.Skill;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 import java.util.Set;
 
 public record ResponseParent(
@@ -29,10 +31,11 @@ public record ResponseParent(
         String phoneNumber,
         int numberOfChildren,
         String infoFamily,
-        boolean isPremiun
+        boolean isPremiun,
       //  RoleEnum role
 
-
+        //bucle infinitos
+        List<Child> childrens
 
 ) {
 }

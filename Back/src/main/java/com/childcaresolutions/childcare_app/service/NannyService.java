@@ -85,9 +85,9 @@ public class NannyService implements INannyService  {
             nanny.setExperiences(requestEditNanny.experiences());
         }
 
-        if (requestEditNanny.nannyRate() >= 0) {
-            nanny.setNannyRate(requestEditNanny.nannyRate());
-        }
+      //  if (requestEditNanny.nannyRate() >= 0) {
+      //      nanny.setNannyRate(requestEditNanny.nannyRate());
+      //  }
         // Actualizar las habilidades (skills) si no son nulas
       //  if (requestEditParent.skills() != null) {
       //      Set<Skill> skills = requestEditParent.skills();
