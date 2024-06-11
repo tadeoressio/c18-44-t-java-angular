@@ -2,8 +2,10 @@ package com.childcaresolutions.childcare_app.model.dto.request;
 
 import com.childcaresolutions.childcare_app.enums.Day;
 import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.childcaresolutions.childcare_app.model.Child;
 import com.childcaresolutions.childcare_app.model.Skill;
 
+import java.util.List;
 import java.util.Set;
 
 public record RequestEditParent(
@@ -21,7 +23,9 @@ public record RequestEditParent(
          String phoneNumber,
         int numberOfChildren,
         String infoFamily,
-        boolean isPremium
+        boolean isPremium,
+
+        List<Child> childrens
 
 
 

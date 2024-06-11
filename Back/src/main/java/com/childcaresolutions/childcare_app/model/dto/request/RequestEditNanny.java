@@ -24,7 +24,6 @@ public record RequestEditNanny(
         Set<Skill> skills,
         Set<Day> availableDaysN,
         TimeSlot timeSlotN,
-        String experiences,
-        int nannyRate
+        String experiences
 ) {
 }

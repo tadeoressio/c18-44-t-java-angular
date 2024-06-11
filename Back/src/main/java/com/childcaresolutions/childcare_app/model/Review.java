@@ -2,6 +2,7 @@
 package com.childcaresolutions.childcare_app.model;
 
 import com.childcaresolutions.childcare_app.enums.RatingEnums;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,12 +24,13 @@ public class Review {
     //Una niñera puede recibir muchas reseñas
     @ManyToOne
     @JoinColumn(name = "nanny_id")
-
+    @JsonIgnore
     private Nanny nanny;
 
     //Un padre puede elaborar muchas reseñas
     @ManyToOne
     @JoinColumn(name = "parent_id")
+    @JsonIgnore
     private Parent parent;
 
 }

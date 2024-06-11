@@ -25,7 +25,7 @@ public record RequestCreateNanny(
         String photo,
         String location,
         String experiences,
-        int nannyRate,
+       // int nannyRate,
         Set<Skill> skills,
         Set<Day> availableDaysN,
         TimeSlot timeSlotN
