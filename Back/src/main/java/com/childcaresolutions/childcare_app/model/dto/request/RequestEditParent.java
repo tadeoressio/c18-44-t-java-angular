@@ -1,5 +1,13 @@
 package com.childcaresolutions.childcare_app.model.dto.request;
 
+import com.childcaresolutions.childcare_app.enums.Day;
+import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.childcaresolutions.childcare_app.model.Child;
+import com.childcaresolutions.childcare_app.model.Skill;
+
+import java.util.List;
+import java.util.Set;
+
 public record RequestEditParent(
 
         Long id,
@@ -7,12 +15,17 @@ public record RequestEditParent(
         String email,
         String password,
         String photo,
-        boolean availability,
+        //boolean availability,
+        Set<Skill> skills,
+        Set<Day> availableDays,
+        TimeSlot timeSlot,
         String location,
          String phoneNumber,
         int numberOfChildren,
         String infoFamily,
-        boolean isPremium
+        boolean isPremium,
+
+        List<Child> childrens
 
 
 

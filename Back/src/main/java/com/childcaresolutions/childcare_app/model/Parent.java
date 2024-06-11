@@ -1,41 +1,56 @@
 
 package com.childcaresolutions.childcare_app.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
-import java.util.List;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.childcaresolutions.childcare_app.enums.Day;
+import com.childcaresolutions.childcare_app.enums.RoleEnum;
+import com.childcaresolutions.childcare_app.enums.TimeSlot;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+import java.util.*;
+
+import lombok.*;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Parent {
-       @Id
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+public class Parent extends User {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
-    private String name;
-    private String email;
-    private String password;
-    private String photo;
-    private boolean availability;
-    private String location;
+    private Long id;
+    //private RoleEnum role = RoleEnum.PARENT;
     private  String phoneNumber;
     private int numberOfChildren; 
     private String infoFamily;
     private boolean isPremium;
-    
-    
-    
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "parent_skills",
+            joinColumns = { @JoinColumn(name = "parent_id") },
+            inverseJoinColumns = { @JoinColumn(name = "skill_id") }
+    )
+    private Set<Skill> skills = new HashSet<>();
+
+    @ElementCollection(targetClass = Day.class)
+    @CollectionTable(name = "parent_available_days", joinColumns = @JoinColumn(name = "parent_id"))
+    @Enumerated(EnumType.STRING)
+    @Column(name = "day")
+    private Set<Day> availableDays = EnumSet.noneOf(Day.class);
+
+    @Enumerated(EnumType.STRING)
+    private TimeSlot timeSlot;
+
     //Un padre puede tener muchos hijos
      @OneToMany(mappedBy = "parent")
+
+     //@JsonIgnore
+     //@JsonManagedReference
+     //@JsonIgnoreProperties(value="parent")
      private List<Child> childrens;
      
     //Un padre puede tener muchas solicitudes
@@ -50,6 +65,6 @@ public class Parent {
        // Relación OneToMany con las reseñas escritas por este padre
     @OneToMany(mappedBy = "parent")
     private List<Review> reviews;
-    
-    
+
+
 }

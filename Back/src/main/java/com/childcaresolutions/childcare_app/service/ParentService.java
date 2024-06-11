@@ -1,18 +1,26 @@
 
 package com.childcaresolutions.childcare_app.service;
 
+import com.childcaresolutions.childcare_app.enums.Day;
+import com.childcaresolutions.childcare_app.enums.RoleEnum;
+import com.childcaresolutions.childcare_app.enums.TimeSlot;
 import com.childcaresolutions.childcare_app.exeptions.EmailAlreadyExistsException;
 import com.childcaresolutions.childcare_app.exeptions.EntityNotFoundException;
+import com.childcaresolutions.childcare_app.model.Child;
 import com.childcaresolutions.childcare_app.model.Parent;
+import com.childcaresolutions.childcare_app.model.Skill;
 import com.childcaresolutions.childcare_app.model.dto.mapper.ParentMapper;
 import com.childcaresolutions.childcare_app.model.dto.request.RequestCreateParent;
 import com.childcaresolutions.childcare_app.model.dto.request.RequestEditParent;
 import com.childcaresolutions.childcare_app.model.dto.respose.ResponseParent;
+import com.childcaresolutions.childcare_app.repository.IChildRepository;
 import com.childcaresolutions.childcare_app.repository.IParentRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Set;
 
 @RequiredArgsConstructor
 @Service
@@ -20,6 +28,7 @@ public class ParentService implements IParentService {
 
     private final IParentRepository parentRepository;
     private final ParentMapper parentMapper;
+    private final IChildRepository childRepository;
 
 
     @Override
@@ -34,7 +43,8 @@ public class ParentService implements IParentService {
         Parent parent = parentMapper.requestCreateToParent(requestCreateParent);
 
         // Aplicar lógica de negocio adicional
-        parent.setAvailability(false);  // Ejemplo de lógica de negocio: todos los padres nuevos son disponibles por defecto
+
+       // parent.setRole(RoleEnum.PARENT);
 
         // Guardar la entidad Parent en la base de datos
         Parent savedParent = parentRepository.save(parent);
@@ -87,8 +97,37 @@ public class ParentService implements IParentService {
             parent.setInfoFamily(requestEditParent.infoFamily());
         }
 
+
+        // Actualizar las habilidades (skills) si no son nulas
+        if (requestEditParent.skills() != null) {
+            Set<Skill> skills = requestEditParent.skills();
+            parent.setSkills(skills);
+        }
+
+        // Actualizar los días disponibles (availableDays) si no son nulos
+        if (requestEditParent.availableDays() != null) {
+            Set<Day> availableDays = requestEditParent.availableDays();
+            parent.setAvailableDays(availableDays);
+        }
+
+        // Actualizar el horario (timeSlot) si no es nulo
+        if (requestEditParent.timeSlot() != null) {
+            TimeSlot timeSlot = requestEditParent.timeSlot();
+            parent.setTimeSlot(timeSlot);
+        }
+
+        // Actualizar la lista de hijos
+        if (requestEditParent.childrens() != null) {
+            List<Child> updatedChildren = requestEditParent.childrens();
+            for (Child child : updatedChildren) {
+                child.setParent(parent); // Asegurar que cada hijo apunte al padre correcto
+                childRepository.save(child); // Guardar cada hijo individualmente
+            }
+            parent.setChildrens(updatedChildren); // Asignar la lista actualizada al padre
+        }
         Parent updatedParent = parentRepository.save(parent);
         return parentMapper.parentToRespose(updatedParent);
+
 
     }
 

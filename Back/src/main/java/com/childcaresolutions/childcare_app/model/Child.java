@@ -1,6 +1,8 @@
 
 package com.childcaresolutions.childcare_app.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,5 +29,8 @@ public class Child {
    // Relación ManyToOne con Parent
     @ManyToOne
     @JoinColumn(name = "parent_id")
+    //@JsonBackReference
+    //@JsonIgnoreProperties(value="childrens")
+    @JsonIgnore
     private Parent parent;
 }

@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: app
+    env: docker
+    docker:
+      file: Back/Dockerfile
+    buildCommand: ./Back/mvnw clean package -DskipTests
+    startCommand: java -jar Back/target/Bybysitting-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DB_URL
+        fromDatabase: bybysitting-db
+        query: jdbc:mysql://<DB_URL>:3306/childcare?createDatabaseIfNotExist=true&serverTimezone=UTC
+      - key: DB_USERNAME
+        fromDatabase: bybysitting-db
+        query: root
+      - key: DB_PASSWORD
+        fromDatabase: bybysitting-db
+        query: 12345
+    ports:
+      - port: 8080
+    dependsOn:
+      - service: bybysitting-db
+
+  - type: database
+    name: bybysitting-db
+    config:
+      image: mysql
+      port: 3306
+      mount:
+        name: data_mysql
+        path: /var/lib/mysql
+      envVars:
+        - key: MYSQL_ROOT_PASSWORD
+          value: 12345
+        - key: MYSQL_PASSWORD
+          value: 12345
+        - key: MYSQL_DATABASE
+          value: childcare
+
+volumes:
+  data_mysql:
+    persistent: true
