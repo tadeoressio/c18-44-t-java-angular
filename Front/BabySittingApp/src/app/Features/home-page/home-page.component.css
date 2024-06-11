@@ -48,7 +48,7 @@ img {
 #knowTextDiv {
     display: flex;
     justify-content: center;
-    margin-right: 20%;
+    margin-right: 48%;
 }
 #KnowTitle {
     font-size: 40px;
@@ -73,14 +73,134 @@ img {
     border-radius: 60px;
 }
 #cardTextDiv {
-    
     width: 250px;
 }
 #cardTextDiv p {
     margin: 0;
     margin-left: 5%;
-    
 }
 .col-sm-3 {
-    /* agregar sombra */
+    padding: 0;
+    margin-left: 5%;
+    box-shadow: 2px 2px 44px -13px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 2px 44px -13px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 2px 44px -13px rgba(0,0,0,0.75);
+}
+#calification {
+    margin-top: 10%;
+    background-image: url(/assets/Waves4.svg);
+    height: 600px;
+}
+#calificationDiv {
+    display: flex;
+    justify-content: center;
+    margin-right: 52%;
+}
+#calificationText {
+    margin-top: 10%;
+}
+#cardTextDiv {
+    align-content:center;
+}
+#calification p {   
+    margin-bottom: 0;
+}
+#infoService {
+    margin-top: 20%;
+}
+#textTitleInfoService {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+#boxesInfoService {
+    display: flex;
+    justify-content: space-around;
+}
+.cardInfoService {
+    background-color: #f3d2d2;
+    width: 220px;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 5%;
+    text-align: center;
+    align-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.cardInfoService p {
+    margin-top: 5%;
+    font-size: 13px;
+    font-weight: 600;
+}
+.cardInfoService2 {
+    background-color: #f8acac;
+    width: 220px;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 5%;
+    text-align: center;
+    align-content: center;
+    padding-left: 2%;
+    padding-right: 2%;
+}
+.cardInfoService2 p {
+    margin-top: 5%;
+    font-size: 13px;
+    font-weight: 600;
+}
+#security {
+    margin-top: 50px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-image: url(/assets/WavesHands.svg);
+    height: 1000px;
+    z-index: 1;
+}
+#textSecurity {
+    padding: 15%;
+    padding-bottom: 5%;
+    text-align: center;
+    font-size: 30px;
+}
+#descSecurity {
+    font-size: 20px;
+}
+#cardsSecurityDiv {
+    display: flex;
+    justify-content: space-around;
+}
+.cardSecurity {
+    background-color: white;
+    border-radius: 100px;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    padding: 30px;
+}
+.cardTitleSecurity {
+    padding-bottom: 15px;
+}
+#cardSecurity2 {
+    margin-top: 5%;
+}
+#contactDiv {
+    background-color: rgb(60, 107, 226);
+    position: absolute;
+    z-index: -1;
+    height: 650px;
+    width: 100%;
+}
+#contactTextDiv {
+    margin-top: 300px;
+    color: white;
+}
+#contactText {
+    width: 800px;
+    margin-left: 15%;
+}
+#contactText p, li {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
 }
