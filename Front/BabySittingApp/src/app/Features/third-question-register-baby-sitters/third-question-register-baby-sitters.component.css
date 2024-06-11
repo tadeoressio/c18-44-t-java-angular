@@ -1,0 +1,174 @@
+#MainDiv {
+    display: flex;
+    justify-content: center;
+    height: 85%;
+    margin: 0;
+    margin-top: 2%;
+}
+#MenuDiv {
+    height: 85%;
+    width: 60%;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+#titleText {
+    margin-top: 2%;
+}
+#optionsDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 5%;
+}
+#FormDiv {
+    height: 50%;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-content: center;   
+}
+.daysDiv, #hoursDiv, #skillsDiv {
+    display: inline-block;
+    justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.imgsDiv {
+    display: flex;
+    justify-content: center;
+}
+#inputDiv {
+    margin: 0;
+    display: flex;
+    align-items: end;
+}
+button {
+    width: 160px;
+    margin-top: 20%;
+}
+#quantBabyDiv {
+    display: flex;
+    justify-content: center;
+    
+}
+#babysInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+#babyCards {
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+#submButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#submButton button {
+    margin-top: 72px;
+    width: 100px;
+}
+#daysChecks {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10%;
+}
+.indTitles {
+    margin-top: 15%;
+    background-color: #f8acac;
+    border-radius: 10px;
+    font-size: 25px;
+    width: 150px;
+}
+.checks {
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+.form-check-label {
+    color: black;
+    font-size: 20px;
+}
+input[type="checkbox"] {
+    accent-color: #f8acac;
+    background-color: #f3a7a7;
+    color:#e4a3a3;
+    flex-shrink: 0;
+}
+input, button, select {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    border: none;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f8acac;
+    color: white;
+    align-items: center;
+}
+textarea {
+    background-color: #f07a7a;
+    border-radius: 10px;
+    border: none;
+    padding-left: 5%;
+    padding-top: 5%;
+    height: 140px;
+    color: white;
+    margin: 10%;
+    
+}
+input:focus, button:focus {
+    background-color: #f07a7a;
+}
+p {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 0;
+    text-align: center;
+}
+::placeholder {
+    color:lightgray;
+}
+input:focus::-webkit-input-placeholder {
+	color : transparent;
+}
+img {
+    width: 80px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #f5a6a6;
+}
+.checkBox {
+    display: flex;
+    justify-content: center;
+}
+#flexCheckDefault {
+    width: 35px;
+}
+.hoursIcons {
+    width: 40px;
+    height: 40px;
+}
+#moon {
+    width: 35px;
+    height: 35px;
+    padding-top: 10%;
+}
+#driving {
+    width: 40px;
+    height: 40px;   
+}
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,109 @@
+#banner {
+    background-image: url(/assets/Waves3.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 550px;
+    width: 100%;
+    margin-top: 1%;
+    z-index: -1;
+}
+#textBanner {
+    margin-top: 5%;
+    color: white;
+    display:inline-block;
+}
+#text {
+    display: flex;
+    justify-content: center;
+}
+#filter {
+    background-color: white;
+    height: 50px;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20%;
+    border: 1px solid lightgrey;
+    margin-left: 37px;
+}
+button,#buttonCard {
+    width: 120px;
+    background-color: #e6a9a9;
+    border: none
+}
+a:hover {
+    background-color: #e6a9a9;
+    cursor: pointer;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+#buttonCard:hover {
+    background-color: grey;
+}
+.dropdown-menu {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-radius: 10px;
+    border: none;
+}
+#listBabySitters {
+    display: flex;
+    justify-content: center;
+    margin-top: 1%;
+}
+#cardsBabySitters {
+    display: flex;
+    justify-content: center;
+    width:900px;
+}
+#profileBabySitter {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+}
+#profileDiv {
+    width: 600px;
+}
+#indCard {
+    width: 800px;
+    margin-left: 5%;
+}
+#filterButton {
+    margin-left: 2%;
+}
+#indCardBabySitterImg {
+    width: 200px;
+    border-radius: 10px;
+}
+#card {
+    display: flex;
+    justify-content: center;
+    
+}
+#cardInfo {
+    margin-left: 20px;
+    display: block;
+    width: 300px;
+}
+#card1 {
+    display: flex;
+    justify-content: center;
+    width: 700px;
+}
+.card-text {
+    margin: 0;
+}
+#cardButton {
+    display: flex;
+    justify-content: end;
+    height: 50px;
+    align-items: center;
+    margin-top: 80px;
+}
+.card-text {
+    color:#e6a9a9;
+    font-weight: 600;
+}

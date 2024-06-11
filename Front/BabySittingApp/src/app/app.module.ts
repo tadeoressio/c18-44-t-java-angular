@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
@@ -25,6 +26,14 @@ import { FirstQuestionRegisterComponent } from './Features/first-question-regist
 import { RegisterDadsComponent } from './Features/register-dads/register-dads.component';
 import { RegisterBabySittersComponent } from './Features/register-baby-sitters/register-baby-sitters.component';
 import { LoginPageComponent } from './Features/login-page/login-page.component';
+import { SecondQuestionDadsRegisterComponent } from './features/second-question-dads-register/second-question-dads-register.component';
+import { ThirdQuestionDadsRegisterComponent } from './Features/third-question-dads-register/third-question-dads-register.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FinalDadsRegisterComponent } from './Features/final-dads-register/final-dads-register.component';
+import { SecondQuestionBabySittersRegisterComponent } from './Features/second-question-baby-sitters-register/second-question-baby-sitters-register.component';
+import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-question-register-baby-sitters/third-question-register-baby-sitters.component';
+import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
+import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
 
 
 @NgModule({
@@ -36,6 +45,13 @@ import { LoginPageComponent } from './Features/login-page/login-page.component';
     RegisterDadsComponent,
     RegisterBabySittersComponent,
     LoginPageComponent,
+    SecondQuestionDadsRegisterComponent,
+    ThirdQuestionDadsRegisterComponent,
+    FinalDadsRegisterComponent,
+    SecondQuestionBabySittersRegisterComponent,
+    ThirdQuestionRegisterBabySittersComponent,
+    FinalBabySittersRegisterComponent,
+    BabySittersListComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +69,7 @@ import { LoginPageComponent } from './Features/login-page/login-page.component';
     LikMenuComponent,
     MenubarModule,
     CardModule,
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

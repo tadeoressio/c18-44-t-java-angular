@@ -1,17 +1,26 @@
 <div id="NavBar">
     <div id="SecLogo">
         <div id="Logo">
-            <a href="#" ><img id="ImgLogo" src="/assets/LogoBabySitting.png"></a>        
+            <a href="#" ><img id="ImgLogo" src="/assets/Logo.png"></a>        
         </div>
     </div>
     <div id="Access">
         <div>
             <a href="#">Sobre BabySitting</a>
         </div>
-        <app-lik-menu *ngIf="LogDads || LogBabySitters"></app-lik-menu>
-        <app-not-menu *ngIf="LogDads || LogBabySitters"></app-not-menu>
-        <app-logged-menu *ngIf="LogDads || LogBabySitters"></app-logged-menu>
-        <app-login-menu *ngIf="!LogDads && !LogBabySitters"></app-login-menu>
-        <p-button (click)="RedirectRegister()" label='Regístrate'/>
+        <!-- <app-lik-menu *ngIf="LogDads || LogBabySitters"></app-lik-menu>
+        <app-not-menu *ngIf="LogDads || LogBabySitters"></app-not-menu> -->
+        <!-- <app-logged-menu *ngIf="LogDads || LogBabySitters"></app-logged-menu>
+        <app-login-menu *ngIf="!LogDads && !LogBabySitters"></app-login-menu> -->
+        <button *ngIf="!LogDads && !LogBabySitters" (click)="RedirectLogin()">Inicia sesión</button>
+        <button *ngIf="!LogDads && !LogBabySitters" (click)="RedirectRegister()">Regístrate</button>
+        <div *ngIf="LogDads || LogBabySitters" class="btn-group">
+            <img  data-bs-toggle="dropdown" aria-expanded="false" id="loggedImg"src="./assets/Profile1.jpg"type="button">
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Perfil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="logOut()">Cerrar sesión</a></li>
+            </ul>
+          </div>
     </div>
 </div>

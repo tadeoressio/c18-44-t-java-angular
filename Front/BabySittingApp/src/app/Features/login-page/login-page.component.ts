@@ -14,10 +14,13 @@ export class LoginPageComponent {
 
   constructor(private service: LoginServiceService, private router: Router) { } 
 
-  SendLoginInfo() {
-    console.log('hola');
-    console.log(this.UserEmail);
-    console.log(this.UserPass);    
+  SendLoginInfo(UserEmail: string, UserPass: string) {     
+    this.service.Login(this.UserEmail, this.UserPass).subscribe(res => {
+      if(res) {
+        localStorage.clear();
+        localStorage.setItem("loggedUserInfo", JSON.stringify(res));
+        this.router.navigateByUrl("HomePage")
+      }
+    })
   }
-
 }
