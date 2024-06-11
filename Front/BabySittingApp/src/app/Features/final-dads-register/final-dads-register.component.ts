@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { DadsRegisterService } from 'src/app/Services/dads-register.service';
 
 @Component({
   selector: 'app-final-dads-register',
@@ -9,10 +10,11 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class FinalDadsRegisterComponent {
 
-  constructor(private router: Router, private formBuilder: FormBuilder) {} 
+  constructor(private router: Router, private formBuilder: FormBuilder, private registerService: DadsRegisterService) {} 
 
   images: any = ["./assets/User.png"];
   uploadedImages: string[] = ["./assets/User.png"];
+  uploadedImage: string[] = [];
   textoCarga: string = '';
 
   nameAndLast: string = "";
@@ -22,6 +24,8 @@ export class FinalDadsRegisterComponent {
   location: string = "";
   telNumber: string = "";
   userInfo: any[] = [];
+  daysChoos: boolean[] = [];
+  daysArray: string[] = [];
 
   reemplazarImagen(event: any): void {
     const files = event.target.files;
@@ -45,15 +49,70 @@ export class FinalDadsRegisterComponent {
    
   }
 
-  submitButton() {
+  submitButton(event: any) {
     if (this.nameAndLast != "" && this.mail != "" && this.pass != "" && this.pass2 != "" && this.location != "" && this.telNumber != "") {
       if (this.pass != this.pass2) {
         alert("Las contraseñas no coinciden");
       } else {
-        this.userInfo.push(localStorage.getItem("babysInfo"));
-        this.userInfo.push(localStorage.getItem("hoursChoosed"));
-        this.userInfo.push(localStorage.getItem("skillsChoosed"));
-        this.userInfo.push(localStorage.getItem("daysChoosed"));
+        let infoBaby = localStorage.getItem("babysInfo");
+        if (infoBaby) {
+          let newObject3 = JSON.parse(infoBaby);
+          this.userInfo.push(newObject3);
+        }
+
+        let infoSkills = localStorage.getItem('skillsChoosed');
+        if (infoSkills) {
+          let newObject = JSON.parse(infoSkills);
+          this.userInfo.push(newObject);
+        }
+
+        let infoDays = localStorage.getItem('daysChoosed');
+        if (infoDays) {
+          let newObject = JSON.parse(infoDays);
+          if(newObject[0] == true) {
+            this.daysArray.push("MONDAY");
+          }
+          if(newObject[1] == true) {
+            this.daysArray.push("TUESDAY");
+          }
+          if(newObject[2] == true) {
+            this.daysArray.push("WEDNESDAY");
+          }
+          if(newObject[3] == true) {
+            this.daysArray.push("THURSDAY");
+          }
+          if(newObject[4] == true) {
+            this.daysArray.push("FRIDAY");
+          }
+          if(newObject[5] == true) {
+            this.daysArray.push("SATURDAY");
+          }
+          if(newObject[6] == true) {
+            this.daysArray.push("SUNDAY");
+          }
+          this.userInfo.push(this.daysArray);
+        }
+
+        let infoHours = localStorage.getItem('hoursChoosed');
+        if (infoHours) {
+          let newObject2 = JSON.parse(infoHours);
+          if(newObject2[0] == true) {
+            newObject2[1] = false;
+            newObject2[2] = false;
+            this.userInfo.push("MORNING");  
+          }
+          if(newObject2[1] == true) {
+            newObject2[0] = false;
+            newObject2[2] = false;
+            this.userInfo.push("AFTERNOON");  
+          }
+          if(newObject2[2] == true) {
+            newObject2[1] = false;
+            newObject2[0] = false;
+            this.userInfo.push("NIGHT");  
+          }
+        }
+        
         let nameArray= [];
         nameArray.push(this.nameAndLast.split(" "));
         if(nameArray.length > 0) {
@@ -63,10 +122,18 @@ export class FinalDadsRegisterComponent {
           this.userInfo.push(nameArray[0][0]);
           this.userInfo.push(nameArray[0][1]);
         }
+        
         this.userInfo.push(this.mail);
         this.userInfo.push(this.pass);
         this.userInfo.push(this.location);
         this.userInfo.push(this.telNumber);
+        this.userInfo.push(JSON.stringify(this.uploadedImages));
+        
+        this.registerService.register(this.userInfo).subscribe(res => {
+          if(res) {
+            console.log("respuesta de servicio: ", res)
+          }
+        })
       }
       alert("Se ha registrado correctamente");
       this.router.navigateByUrl('HomePage')

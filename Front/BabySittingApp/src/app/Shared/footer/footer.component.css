@@ -1,6 +1,7 @@
 #maindDiv {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 #leftCol {
     width: 40%;

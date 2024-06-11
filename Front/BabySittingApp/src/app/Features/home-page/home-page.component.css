@@ -204,3 +204,11 @@ img {
     font-size: 20px;
     font-weight: 600;
 }
+#main {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#footer {
+    margin-top: auto;
+}

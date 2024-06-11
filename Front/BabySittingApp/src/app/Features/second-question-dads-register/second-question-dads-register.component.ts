@@ -31,9 +31,7 @@ export class SecondQuestionDadsRegisterComponent {
       this.quantBabysChoosen = [];
     }
     this.quantBaby = value;
-    for (let i=0; i < this.quantBaby; i++) {
-      this.quantBabysChoosen[i] = i+1;
-    }
+    this.babysInfo.push(this.quantBaby)
   }
   // lo siguiente debería ser en bucle y no tener tanto código
   submitButton() {
