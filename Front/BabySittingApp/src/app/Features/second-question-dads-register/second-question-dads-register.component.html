@@ -1,0 +1,93 @@
+<app-nav-bar></app-nav-bar>
+<div id="MainDiv" class="form-group">
+    <div id="MenuDiv">
+        <p>¿A quién debemos cuidar?</p>
+        <div id="imgDiv">
+            <img src="../assets/Baby.png">
+        </div>        
+        <div id="FormDiv">
+            <div id="InputDiv">
+                <div id="quantBabyDiv">
+                    <label id="quantBaby" for="quantBaby">Niños/as: </label>
+                    <select [(ngModel)]="quantBaby" (change)="desplegateBabyInfo(quantBaby)" name="quantBaby" id="quantBaby">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select>
+                </div>
+                <!-- <div *ngIf="quantBaby>0" id="babysInfo">
+                    <div *ngFor="let baby of quantBabysChoosen" id="babyCards">
+                        <div id="babyCard">
+                            <input id="textID" [(ngModel)]="baby1Name" (keyup)="changeText(baby1Name, baby.indexOf)"type="text" placeholder="Nombre" >
+                            <textarea [(ngModel)]="baby1Desc" placeholder="Descripción (150 máx)"></textarea>
+                        </div>
+                    </div>
+                </div> -->
+                <div id="babysContainer">
+                    <div *ngIf="quantBaby==1" class="babysInfo">
+                        <div id="babyCards">
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby1Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby1Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="quantBaby==2" class="babysInfo">
+                        <div id="babyCards">
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby1Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby1Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby2Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby2Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="quantBaby==3" class="babysInfo">
+                        <div id="babyCards">
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby1Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby1Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                            <div class="babyCard">
+                                <input class="textID"[(ngModel)]="baby2Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby2Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby3Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby3Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="quantBaby==4" class="babysInfo">
+                        <div id="babyCards">
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby1Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby1Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                            <div class="babyCard">
+                                <input class="textID"[(ngModel)]="baby2Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby2Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby3Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby3Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                            <div class="babyCard">
+                                <input class="textID" [(ngModel)]="baby4Name" type="text" placeholder="Nombre" >
+                                <textarea class="textAreaID" [(ngModel)]="baby4Desc" placeholder="Descripción (150 máx)"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div id="submButton">
+            <button type="submit" (click)="submitButton()">Siguiente</button>
+        </div>
+    </div>
+    
+</div>

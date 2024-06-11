@@ -1,0 +1,134 @@
+#MainDiv {
+    display: flex;
+    justify-content: center;
+    height: 85%;
+    margin: 0;
+    margin-top: 2%;
+}
+#MenuDiv {
+    
+    height: 85%;
+    width: 60%;
+    background-color: lightgray;
+    border-radius: 30px;
+}
+#FormDiv {
+    flex: 1 1 0;
+    height: 50%;
+
+    width: 100%;
+    justify-content: center;
+    
+}
+#inputDiv {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+#imgDiv {
+    display: flex;
+    justify-content: center;
+}
+#quantBabyDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+#babysContainer {
+    flex: 1 1 0;
+    justify-content: center;
+    width: 100%;
+}
+.babysInfo {
+    justify-content: center;
+    align-items: center;   
+}
+#babyCards {
+    display: flex;
+    justify-content: center;
+    
+}
+.babyCard {
+    margin-right: 1%;
+    margin-left: 1%;    
+}
+#submButton {
+    display: flex;
+    justify-content: center;
+}
+#quantBaby {
+    color: white;
+}
+.textID, .textAreaID {
+    width: 400px;
+    height: 200px;
+    padding-left: 5%;
+    background-color: #fac0c0;
+    color: white;
+}
+input, button, select {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: #f8acac;
+    color: white;
+    align-items: center;
+}
+textarea {
+    background-color: #f8acac;
+    border-radius: 10px;
+    border: none;
+    padding-left: 5%;
+    padding-top: 5%;
+    height: 140px;
+    color: white;
+    margin-top: 1%;
+    
+}
+input:focus, button:focus {
+    background-color: #f4c2c2;
+}
+p {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    margin: 20px;
+    text-align: center;
+}
+::placeholder {
+    color:white;
+    font-size: 13px;
+}
+input:focus::-webkit-input-placeholder {
+	color : transparent;
+}
+img {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+button:hover {
+    cursor: pointer;
+    background-color: #f5a6a6;
+}
+button {
+    height: 45px;
+    width: 100px;
+}
+select {
+    margin-left: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-top: 1px;
+}
+img {
+    filter: hue-rotate(330deg)
+}

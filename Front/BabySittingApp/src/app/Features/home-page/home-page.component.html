@@ -1,14 +1,78 @@
 <app-nav-bar id="NavBar"></app-nav-bar>
-<div id="Banner">
-    <div id="Center">
-        <div id="content">
-            <div id="Title">
-                <h1>Cuida con confianza: <br>
-                    conectando familias con cuidadores</h1>
+<div id="main">
+    <div id="Banner">
+        <div id="Center">
+            <div id="content">
+                <div id="Title">
+                    <h1>Cuida con confianza: <br>
+                        conectando familias con niñeras</h1>
+                </div>
+                <div id="descDiv">
+                    <p>Aquí podrás encontrar fácilmente un servicio de cuidado de niños confiable y de calidad. Conecta con niñeras verificadas y comparte tus experiencias para ayudar a otros padres.
+                    </p>    
+                </div>
+               <div id="buttons">
+                    <button *ngIf="!LogDads && !LogBabySitter" (click)="redirectDadsReg()">Encuentra una niñera</button>
+                    <button *ngIf="!LogDads && !LogBabySitter" (click)="redirectBabySitterReg()">Únete como niñera</button>
+                    <button *ngIf="LogDads" (click)="redirectDadsToList()">Contacta con niñeras</button>
+                    <button *ngIf="LogBabySitter" (click)="redirectBabySitterReg()">Mira tus solicitudes</button>
+               </div> 
             </div>
-            <div class="card flex justify-content-center">
-                <p-cascadeSelect id="ButtonCity" [(ngModel)]="selectedCity" [options]="countries" optionLabel="cname" optionGroupLabel="name" [optionGroupChildren]="['states', 'cities']" [style]="{ minWidth: '14rem' }" placeholder="Búsca tu localidad"></p-cascadeSelect>
+            <img src="/assets/Family.jpg">
+        </div>
+    </div>
+    <div id="knowBabySitters">
+        <div id="knowTextDiv">
+            <div id="knowText">
+                <P id="KnowTitle">Conoce a nuestras niñeras</P>
+                <p>Algunos testimonios compartidos a través de los años</p>
+            </div>
+        </div>
+        <div id="cardsDiv">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">"Fue una experiencia hermosa"</h5>
+                            <div id="imgAndName">
+                                <img src="/assets/Profile1.jpg">   
+                                <div id="cardTextDiv">
+                                    <p class="card-text">Juan Perez</p>
+                                    <p class="card-text">Niñero hace 4 años</p>
+                                </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                      <div class="card-body">
+                          <h5 class="card-title">"Fue una experiencia hermosa"</h5>
+                          <div id="imgAndName">
+                              <img src="/assets/Profile1.jpg">   
+                              <div id="cardTextDiv">
+                                  <p class="card-text">Juan Perez</p>
+                                  <p class="card-text">Niñero hace 4 años</p>
+                              </div>   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">"Fue una experiencia hermosa"</h5>
+                            <div id="imgAndName">
+                                <img src="/assets/Profile1.jpg">   
+                            <div id="cardTextDiv">
+                                <p class="card-text">Juan Perez</p>
+                                <p class="card-text">Niñero hace 4 años</p>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+

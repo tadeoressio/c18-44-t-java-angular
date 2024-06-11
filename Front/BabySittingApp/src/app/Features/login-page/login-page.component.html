@@ -1,13 +1,22 @@
 <app-nav-bar></app-nav-bar>
 <div id="MainDiv" class="form-group">
     <div id="MenuDiv">
-        <p>Inicio de sesión</p>
         <div id="FormDiv">
             <div id="InputDiv">
-                <input [(ngModel)]="UserEmail" id="InputEmail" type="email" class="form-control" placeholder="Correo">
-                <input [(ngModel)]="UserPass" type="password" placeholder="Contraseña" (keyup.enter)="SendLoginInfo()">
-                <button type="button" (click)="SendLoginInfo()">Inicia sesión</button>
-                <a id="LoginButton" href="/FirstQuestionRegister">¿No tienes una cuenta? Regístrate</a>
+                <input [(ngModel)]="UserEmail" id="inputEmail" type="email" (keyup.enter)="SendLoginInfo(UserEmail, UserPass)" class="form-control" placeholder="Correo">
+                <input [(ngModel)]="UserPass"id="inputPass" type="password" (keyup.enter)="SendLoginInfo(UserEmail, UserPass)" placeholder="Contraseña" class="form-control">
+                <div id="checksDiv">
+                    <div id="rememberDiv">
+                        <input id="rememberCheck" type="checkbox">
+                        <label>Recordarme</label>
+                    </div>
+                </div>
+                <button id="loginButton" type="button" (click)="SendLoginInfo(UserEmail, UserPass)">Inicia sesión</button>
+                
+                <div id="forgottenDiv">
+                    <a href="HomePage">¿Olvidó su contraseña?</a>
+                </div>
+                <a id="registerButton" href="/FirstQuestionRegister">¿No tienes una cuenta? Regístrate</a>
             </div>
         </div>
     </div>
