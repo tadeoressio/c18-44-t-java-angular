@@ -34,6 +34,7 @@ import { SecondQuestionBabySittersRegisterComponent } from './Features/second-qu
 import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-question-register-baby-sitters/third-question-register-baby-sitters.component';
 import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
 import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
+import { FooterComponent } from './Shared/footer/footer.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitt
     ThirdQuestionRegisterBabySittersComponent,
     FinalBabySittersRegisterComponent,
     BabySittersListComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

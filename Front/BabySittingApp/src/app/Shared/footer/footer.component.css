@@ -1,0 +1,18 @@
+#maindDiv {
+    display: flex;
+    justify-content: space-between;
+}
+#leftCol {
+    width: 40%;
+    margin-left: 1%;
+    margin-top: 2%;
+}
+#socialIcons {
+    margin-top: 10%;
+}
+img {
+    margin-right: 1%;
+    width: 20px;
+    filter: grayscale(100%);
+    border-radius: 15px;
+}
