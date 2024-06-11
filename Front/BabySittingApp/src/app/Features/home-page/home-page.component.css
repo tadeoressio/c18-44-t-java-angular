@@ -45,3 +45,42 @@ img {
     margin-top: 2%;
     margin-left: 5%;
 }
+#knowTextDiv {
+    display: flex;
+    justify-content: center;
+    margin-right: 20%;
+}
+#KnowTitle {
+    font-size: 40px;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 15%
+}
+#cardsDiv {
+    margin-top: 5%;
+}
+.row {
+    display: flex;
+    justify-content: center;
+}
+#imgAndName {
+    display: flex;
+    justify-content: space-around;
+}
+#imgAndName img {
+    width: 80px;
+    margin: 0;
+    border-radius: 60px;
+}
+#cardTextDiv {
+    
+    width: 250px;
+}
+#cardTextDiv p {
+    margin: 0;
+    margin-left: 5%;
+    
+}
+.col-sm-3 {
+    /* agregar sombra */
+}

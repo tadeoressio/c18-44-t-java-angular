@@ -9,16 +9,13 @@ import { LoginServiceService } from 'src/app/Services/login-service.service';
   })
 export class HomePageComponent implements OnInit {
     
-    LogDads: boolean = false;
-    LogBabySitter: boolean = false;
+    
+    LogDads: boolean = this.loginService.DadLoggedStatus()
+    LogBabySitter: boolean = this.loginService.BabySitterLoggedStatus();
 
     constructor(private router: Router, private loginService: LoginServiceService){}
 
     ngOnInit() {
-        this.LogDads = this.loginService.DadLoggedStatus();
-        console.log("padre: " + this.LogDads)
-        this.LogBabySitter = this.loginService.BabySitterLoggedStatus();
-        console.log("niñera: " + this.LogBabySitter)
     }
 
     redirectBabySitterReg() {
@@ -26,5 +23,8 @@ export class HomePageComponent implements OnInit {
     }
     redirectDadsReg() {
         this.router.navigateByUrl('/SecondQuestionDadsRegister'); 
+    }
+    redirectDadsToList() {
+        this.router.navigateByUrl('/BabySitterList'); 
     }
 }
