@@ -9,6 +9,7 @@ import { LoginServiceService } from 'src/app/Services/login-service.service';
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
+  
 })
 export class NavBarComponent {
   
