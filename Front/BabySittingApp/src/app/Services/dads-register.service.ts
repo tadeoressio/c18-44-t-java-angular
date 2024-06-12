@@ -12,21 +12,30 @@ export class DadsRegisterService {
     const body = {
       id: 0,
       name: userInfo[4] + ' ' + userInfo[5],
+      email: userInfo[6],
       password: userInfo[7],
       photo: userInfo[10],
       location: userInfo[8],
-      skills: {
+      skills: [{
         id: 0,
         cooking: userInfo[1][0],
         firstAid: userInfo[1][1],
         hasCar: userInfo[1][2],
-      },
+      }],
       availableDays: userInfo[2],
       timeSlot: userInfo[3],
       phoneNumber: userInfo[9],
       numberOfChildren: userInfo[0][0],
       infoFamily: userInfo[0][2],
+      childrens: [{
+        id: 0,
+        name: userInfo[0][1],
+        age: 0,
+        description: userInfo[0][2],
+      }],
+      
     }
-    return this.HttpService.post<any>('https://c18-44-t-java-angular.onrender.com/api/parents/register', body);
+    console.log("body: " + JSON.stringify(body));
+    return this.HttpService.post<any>('https://c18-44-t-java-angular-1.onrender.com/api/parents/register', body);
   }
 }

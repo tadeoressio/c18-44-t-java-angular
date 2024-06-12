@@ -23,6 +23,7 @@ export class FinalDadsRegisterComponent {
   pass2: string = "";
   location: string = "";
   telNumber: string = "";
+  telNumber2: number = 0;
   userInfo: any[] = [];
   daysChoos: boolean[] = [];
   daysArray: string[] = [];
@@ -57,6 +58,7 @@ export class FinalDadsRegisterComponent {
         let infoBaby = localStorage.getItem("babysInfo");
         if (infoBaby) {
           let newObject3 = JSON.parse(infoBaby);
+          newObject3[0] = Number(newObject3[0])
           this.userInfo.push(newObject3);
         }
 
@@ -129,6 +131,8 @@ export class FinalDadsRegisterComponent {
         this.userInfo.push(this.telNumber);
         this.userInfo.push(JSON.stringify(this.uploadedImages));
         
+        console.log(this.userInfo)
+
         this.registerService.register(this.userInfo).subscribe(res => {
           if(res) {
             console.log("respuesta de servicio: ", res)
