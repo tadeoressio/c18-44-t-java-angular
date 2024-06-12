@@ -53,6 +53,9 @@ import { FooterComponent } from './Shared/footer/footer.component';
     FormsModule,
     NgbModule,
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
