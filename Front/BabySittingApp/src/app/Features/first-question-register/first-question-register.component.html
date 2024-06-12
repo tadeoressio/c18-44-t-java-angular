@@ -1,21 +1,13 @@
 <app-nav-bar></app-nav-bar>
 <div id="CardsFirstQuestion">
-    <button header="Niñero/niñera" [style]="{ width: '360px' }">
-        <ng-template pTemplate="header">
+    <div class="indCard">
             <img alt="Card" src="../assets/Babysitter.jpg" />
-        </ng-template>
-        <p>
-            Aquí podrás registrarte como niñero/a para poder contactar con familias que requieran este servicio
-        </p>
-        <button (click)="RedirectBabySittersAfterFirstQuestion()">Registrarme como niñero/a</button>
-    </button>
-    <button header="Padre/madre" [style]="{ width: '360px' }">
-        <ng-template pTemplate="header">
-            <img alt="Card" src="../assets/Dads.png"/>
-        </ng-template>
-        <p>
-            Aquí podrás registrarte como padre/madre para poder contactar con niñeros/as cerca de tu zona
-        </p>
+            <p>Aquí podrás registrarte como niñero/a para poder contactar con familias que requieran este servicio</p>
+            <button (click)="RedirectBabySittersAfterFirstQuestion()">Registrarme como niñero/a</button>
+    </div>
+    <div class="indCard">
+        <img alt="Card" src="../assets/Dads.png" />
+        <p>Aquí podrás registrarte como padre/madre para poder contactar con niñeros/as cerca de tu zona</p>
         <button (click)="RedirectDadsAfterFirstQuestion()">Registrarme como padre/madre</button>
-    </button>
+    </div>
 </div>

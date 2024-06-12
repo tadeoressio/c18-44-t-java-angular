@@ -12,6 +12,7 @@
     background-color: lightgray;
     border-radius: 30px;
 }
+
 #FormDiv {
     flex: 1 1 0;
     height: 50%;
@@ -129,4 +130,14 @@ select {
 }
 img {
     filter: hue-rotate(330deg)
+}
+#titleText {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#titleText p {
+    background-color: #f4c2c2;
+    border-radius: 10px;
+    width: 400px;
 }
