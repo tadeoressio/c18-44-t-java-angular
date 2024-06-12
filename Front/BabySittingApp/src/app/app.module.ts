@@ -1,12 +1,13 @@
+// @ts-ignore
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {HttpClientModule} from '@angular/common/http';
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -52,6 +53,7 @@ import { FooterComponent } from './Shared/footer/footer.component';
     BrowserAnimationsModule,
     FormsModule,
     NgbModule,
+    RouterModule,
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
