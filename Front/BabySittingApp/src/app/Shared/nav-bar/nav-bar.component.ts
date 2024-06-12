@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { LoginServiceService } from 'src/app/Services/login-service.service';
 
 @Component({
-  selector: 'app-nav-bar',
+  selector: 'app-navbar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css'],
   
