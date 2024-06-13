@@ -4,6 +4,7 @@ import { HttpsServiceService } from 'src/app/Services/https-service.service';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginServiceService } from 'src/app/Services/login-service.service';
+import { BabySittersInfoService } from 'src/app/Services/baby-sitters-info.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +17,7 @@ export class NavBarComponent {
   LogDads: boolean = false;
   LogBabySitters: boolean = false;
 
-  constructor(private router: Router, private http: HttpClient, private loginService: LoginServiceService) { } 
+  constructor(private router: Router, private http: HttpClient, private loginService: LoginServiceService, private babySitter: BabySittersInfoService) { } 
 
   ngOnInit() {
     let infoLocal = localStorage.getItem("loggedUserInfo")
@@ -33,6 +34,11 @@ export class NavBarComponent {
         this.LogBabySitters = false;
       }
     }
+    this.babySitter.allBabySitters().subscribe(res => {
+      if(res) {
+        console.log("respuesta de servicio: ", res)
+      }
+    })
   }
   logOut() {
     this.LogBabySitters = false;

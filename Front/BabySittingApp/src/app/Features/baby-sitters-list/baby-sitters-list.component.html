@@ -1,4 +1,5 @@
 <app-nav-bar></app-nav-bar>
+
 <div id="banner">
     <div id="text">
         <div id="textBanner">
@@ -19,30 +20,31 @@
             </ul>
         </div>
     </div>
+
     <div id="listBabySitters">
         <div id="cardsBabySitters">
             <div id="indCard">
-                <div id="card1" class="card">
+                <div [ngStyle]="{'box-shadow': shadowDiv}" id="card1" class="card">
                     <div id="card" class="card-body">
                         <div>
                             <img id="indCardBabySitterImg" src="./assets/Profile1.jpg">
                         </div>
-                        <div id="cardInfo">
-                            <h5 id="nameAndLast"class="card-title">Nombre y apellido</h5>
-                            <p class="card-text">Días: lunes, martes y miércoles</p>
-                            <p class="card-text">Horarios: mañana</p>
-                            <p class="card-text">Habilidades: cocinar</p>
+                        <div class="selected" id="cardInfo">
+                            <h5 id="nameAndLast"class="card-title"><span [(ngModel)]="babySitterName">{{babySittersInfo[1]}}</span></h5>
+                            <p class="card-text">Días: <span>{{babySittersInfo[9]}}</span></p>
+                            <p class="card-text">Horarios: <span>{{babySittersInfo[10]}}</span></p>
+                            <p class="card-text">Habilidades: <span>{{babySittersSkills}}</span></p>
                             <p class="card-text">Distancia: 2km</p>
                         </div>
                         <div id="cardButton">
-                            <a id="buttonCard"href="#" class="btn btn-primary">Ver perfil</a>
+                            <button (click)="changeValues()" id="buttonCard"href="#" class="btn btn-primary">Ver perfil</button>
                         </div>
                     </div>
                 </div>
             </div>
-              
         </div>
-        <div id="profileBabySitter">  
+
+        <div *ngIf="babySitterSelected" class="profileBabySitter">  
             <div id="profileDiv" class="card" >
                 <img src="./assets/Profile1.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
@@ -50,16 +52,39 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                  <li class="list-group-item">An item</li>
-                  <li class="list-group-item">A second item</li>
-                  <li class="list-group-item">A third item</li>
+                  <li class="list-group-item">Días disponible: </li>
+                  <li class="list-group-item">Horario disponible: </li>
+                  <li class="list-group-item">Habilidades: </li>
                 </ul>
-                <div class="card-body">
-                  <a href="#" class="card-link">Card link</a>
-                  <a href="#" class="card-link">Another link</a>
-                </div>
-              </div>
-        </div>
 
+                <button id="contactButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Contacta
+                </button>                
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">¿Quieres contactar con ...?</h1>
+                                <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">Si quieres contactarte con ... deberá aceptar tu solicitud</div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Contactar</button>
+                                <button type="button" class="btn btn-primary">Cancelar</button>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <p>Calificación: <span>8</span></p>
+            </div>
+        </div>        
+
+        <div *ngIf="!babySitterSelected" class="profileBabySitter">  
+            <div id="profileDiv" class="card" >
+                <div id="noSelected">
+                    <p>Seleccione un perfil</p>
+                </div>  
+            </div>
+        </div>
     </div>
 </div>

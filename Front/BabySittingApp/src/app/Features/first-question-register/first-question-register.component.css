@@ -33,8 +33,8 @@ button:hover {
     margin-left: 5%;
     margin-top: 3%;
     box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
--webkit-box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
--moz-box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
 }
 .indCard
 .indCard button, img, button, p{
