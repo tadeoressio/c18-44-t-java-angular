@@ -55,7 +55,8 @@ public class Parent extends User {
      private List<Child> childrens;
      
     //Un padre puede tener muchas solicitudes
-     @OneToMany(mappedBy = "parent")
+     //@OneToMany(mappedBy = "parent")
+     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<Request> requests;
      
      //Un padre puede tener muchas Niñeras Favoritas

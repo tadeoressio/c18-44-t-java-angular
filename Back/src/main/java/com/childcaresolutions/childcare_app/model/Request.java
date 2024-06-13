@@ -22,7 +22,13 @@ public class Request {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id; 
-    private RequestStatus status; 
+    private RequestStatus status;
+
+    // Comentario opcional del padre
+    private String comment;
+
+    // Método de contacto opcional del padre
+    private String contactMethod;
     
       // Relación ManyToOne con la niñera
       //Una niñera puede tener muchas solicitudes
@@ -34,6 +40,5 @@ public class Request {
     //Un padre puede tener muchas solicitudes
     @ManyToOne
     @JoinColumn(name = "parent_id")
-
     private Parent parent;
 }
