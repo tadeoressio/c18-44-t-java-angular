@@ -46,11 +46,12 @@ public class Parent extends User {
     private TimeSlot timeSlot;
 
     //Un padre puede tener muchos hijos
-     @OneToMany(mappedBy = "parent")
+
 
      //@JsonIgnore
      //@JsonManagedReference
      //@JsonIgnoreProperties(value="parent")
+     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, orphanRemoval = true)
      private List<Child> childrens;
      
     //Un padre puede tener muchas solicitudes
