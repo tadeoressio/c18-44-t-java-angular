@@ -1,8 +1,6 @@
 import { Component, OnInit, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpsServiceService } from 'src/app/Services/https-service.service';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { LoginServiceService } from 'src/app/Services/login-service.service';
 import { BabySittersInfoService } from 'src/app/Services/baby-sitters-info.service';
 
@@ -14,35 +12,35 @@ import { BabySittersInfoService } from 'src/app/Services/baby-sitters-info.servi
 })
 export class NavBarComponent {
   
-  LogDads: boolean = false;
-  LogBabySitters: boolean = false;
+  dadLogged: boolean = false;
+  BabySitterLogged: boolean = false;
 
-  constructor(private router: Router, private http: HttpClient, private loginService: LoginServiceService, private babySitter: BabySittersInfoService) { } 
+  userPhoto: string = '';
+  infoLocal: any = [];
+
+  constructor(private router: Router, private http: HttpClient, private loginService: LoginServiceService) { } 
 
   ngOnInit() {
-    let infoLocal = localStorage.getItem("loggedUserInfo")
-    if(infoLocal) {     
-      let newObject = JSON.parse(infoLocal);
-      if(newObject.infoFamily) {
-        this.LogDads = this.loginService.DadLogged();
-      }
-      if(newObject.experiences) {
-        this.LogBabySitters = this.loginService.BabySitterLogged();
-      }
-      if(!newObject.infoFamily && !newObject.experiences) {
-        this.LogDads = false;
-        this.LogBabySitters = false;
-      }
+    this.infoLocal = localStorage.getItem("loggedUserInfo");
+    this.infoLocal = JSON.parse(this.infoLocal);
+    if(this.infoLocal.experiences) {
+      this.BabySitterLogged = true;
+      this.dadLogged = false;
     }
-    this.babySitter.allBabySitters().subscribe(res => {
-      if(res) {
-        console.log("respuesta de servicio: ", res)
-      }
-    })
+    if(this.infoLocal.infoFamily) {
+      this.dadLogged = true;
+      this.BabySitterLogged = false;
+    }
+    this.userPhoto = this.infoLocal.photo;
+    if(!this.infoLocal) {
+      this.BabySitterLogged = false;
+      this.dadLogged = false;
+    }
   }
+
   logOut() {
-    this.LogBabySitters = false;
-    this.LogDads = false;
+    this.BabySitterLogged = false;
+    this.dadLogged = false;
     this.loginService.LogOut();
     localStorage.clear();
     this.router.navigateByUrl('/HomePage');

@@ -131,13 +131,13 @@ export class FinalDadsRegisterComponent {
         this.userInfo.push(this.telNumber);
         this.userInfo.push(JSON.stringify(this.uploadedImages));
         
-        console.log(this.userInfo)
+        console.log(this.userInfo);
 
         this.registerService.register(this.userInfo).subscribe(res => {
           if(res) {
             console.log("respuesta de servicio: ", res)
           }
-        })
+        });
       }
       alert("Se ha registrado correctamente");
       this.router.navigateByUrl('HomePage')

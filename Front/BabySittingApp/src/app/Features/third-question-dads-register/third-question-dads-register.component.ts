@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormArray, FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { LoginServiceService } from 'src/app/Services/login-service.service';
 
 @Component({
   selector: 'app-third-question-dads-register',
@@ -10,21 +11,28 @@ import { FormArray, FormControl, FormGroup, FormBuilder, Validators } from '@ang
 
 export class ThirdQuestionDadsRegisterComponent {
 
-   constructor(private router: Router) {
+   constructor(private router: Router, private loginService: LoginServiceService) {
    } 
 
 
     checkSkillList: boolean[] = [false, false, false];
     checkDaysList: boolean[] = [false, false, false, false, false, false, false];
     checkHoursList: boolean[] = [false, false, false];
+    dadLogged: boolean = false;
+    BabySitterLogged: boolean = false;
 
     ngOnInit() {
       if(!localStorage.getItem("babysInfo") || !localStorage.getItem("babysInfo")) {
         alert("Primero debe indicar información sobre a quién cuidar")
         this.router.navigateByUrl('/SecondQuestionDadsRegister');
       }
-      
-    }
+      this.dadLogged = this.loginService.DadLoggedStatus();
+      this.BabySitterLogged = this.loginService.BabySitterLoggedStatus();
+      if(this.dadLogged || this.BabySitterLogged) {
+          alert("Ya está logueado");
+          this.router.navigateByUrl("HomePage");
+        }
+      }
     
     // todo lo siguiente de checks debería reemplazarse con formControl 
    checkSkill1() {

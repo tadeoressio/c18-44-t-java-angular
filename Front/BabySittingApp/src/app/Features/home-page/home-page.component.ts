@@ -9,13 +9,36 @@ import { LoginServiceService } from 'src/app/Services/login-service.service';
   })
 export class HomePageComponent implements OnInit {
     
-    
-    LogDads: boolean = this.loginService.DadLoggedStatus()
-    LogBabySitter: boolean = this.loginService.BabySitterLoggedStatus();
+    infoUser: any = [];
 
-    constructor(private router: Router, private loginService: LoginServiceService){}
+    userName: string = '';
+    userMail: string = '';
+    userPhoto: string = '';
+    userExp: string = '';
+    infoLocal: any = [];
+
+    dadLogged2: boolean = false;
+    BabySitterLogged2: boolean = false;
+
+    constructor(private router: Router){}
 
     ngOnInit() {
+        this.infoLocal = localStorage.getItem("loggedUserInfo");
+        if(this.infoLocal) {
+            this.infoLocal = JSON.parse(this.infoLocal);
+            if(this.infoLocal.experiences) {
+            this.BabySitterLogged2 = true;
+            this.dadLogged2 = false;
+            }
+            if(this.infoLocal.infoFamily) {
+            this.dadLogged2 = true;
+            this.BabySitterLogged2 = false;
+            }
+            if(!this.infoLocal) {
+            this.BabySitterLogged2 = false;
+            this.dadLogged2 = false;
+            }
+        }
     }
 
     redirectBabySitterReg() {
@@ -25,6 +48,12 @@ export class HomePageComponent implements OnInit {
         this.router.navigateByUrl('/SecondQuestionDadsRegister'); 
     }
     redirectDadsToList() {
-        this.router.navigateByUrl('/BabySitterList'); 
+        this.router.navigateByUrl('/BabySittersList'); 
+    }
+    redirectDadsToRequest() {
+        this.router.navigateByUrl('/'); 
+    }
+    redirectBabySittersToRequest() {
+        this.router.navigateByUrl('/'); 
     }
 }

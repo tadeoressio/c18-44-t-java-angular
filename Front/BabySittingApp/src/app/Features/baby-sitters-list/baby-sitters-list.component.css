@@ -53,17 +53,17 @@ button:hover {
     display: flex;
     justify-content: center;
     margin-top: 1%;
+    height: 750px;
 }
 #cardsBabySitters {
-    display: flex;
-    justify-content: center;
-    width:900px;
+    display: block;
+    width: 900px;
 }
 .profileBabySitter {
     display: flex;
     justify-content: center;
     width: 50%;
-    height:700px;
+    height:750px;
 }
 #profileDiv {
     width: 600px;
@@ -74,6 +74,7 @@ button:hover {
 #indCard {
     width: 800px;
     margin-left: 5%;
+    margin-bottom: 3%;
 }
 #filterButton {
     margin-left: 2%;
@@ -95,7 +96,6 @@ button:hover {
 #card1 {
     display: flex;
     justify-content: center;
-    width: 700px;
 }
 .card-text {
     margin: 0;
@@ -142,7 +142,21 @@ span {
 }
 #contactButton {
     margin: 2%;   
+
 }
 #cross {
     width: 40px;
+}
+#userShowedImg {
+    height: 480px;
+}
+#userShowedButtonDiv {
+    display: flex;
+    /* align-items: center; */
+    text-align: center;
+    align-items: center;
+}
+#userShowedButtonDiv p {
+    margin:0;
+    
 }

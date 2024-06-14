@@ -12,10 +12,11 @@
                     </p>    
                 </div>
                <div id="buttons">
-                    <button *ngIf="!LogDads && !LogBabySitter" (click)="redirectDadsReg()">Encuentra una niñera</button>
-                    <button *ngIf="!LogDads && !LogBabySitter" (click)="redirectBabySitterReg()">Únete como niñera</button>
-                    <button *ngIf="LogDads" (click)="redirectDadsToList()">Contacta con niñeras</button>
-                    <button *ngIf="LogBabySitter" (click)="redirectBabySitterReg()">Mira tus solicitudes</button>
+                    <button *ngIf="!dadLogged2 && !BabySitterLogged2" (click)="redirectDadsReg()">Encuentra una niñera</button>
+                    <button *ngIf="!dadLogged2 && !BabySitterLogged2" (click)="redirectBabySitterReg()">Únete como niñera</button>
+                    <button *ngIf="dadLogged2" (click)="redirectDadsToList()">Contacta con niñeras</button>
+                    <button *ngIf="dadLogged2" (click)="redirectDadsToRequest()">Mira tus solicitudes</button>
+                    <button *ngIf="BabySitterLogged2" (click)="redirectBabySittersToRequest()">Mira tus solicitudes</button>
                </div> 
             </div>
             <img src="/assets/Family.jpg">

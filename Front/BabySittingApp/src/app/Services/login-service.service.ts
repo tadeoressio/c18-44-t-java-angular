@@ -19,22 +19,22 @@ export class LoginServiceService {
       password: password,
     }
     console.log(body)
-    return this.HttpService.post<any>('https://c18-44-t-java-angular.onrender.com/login/login', body);
+    return this.HttpService.post<any>('https://c18-44-t-java-angular-1.onrender.com/login/login', body);
   }
-  DadLogged() {
+  DadLogged(): boolean {
     this.UserDadLogged = true;
     this.UserBabySitterLogged = false;
-    return this.UserDadLogged;
+    return (this.UserDadLogged);
   }
-  BabySitterLogged() {
+  BabySitterLogged(): boolean {
+    this. UserBabySitterLogged = true;
     this.UserDadLogged = false;
-    this.UserBabySitterLogged = true;
     return this.UserBabySitterLogged;
   }
-  DadLoggedStatus() {
+  DadLoggedStatus(): boolean {
     return this.UserDadLogged;
   }
-  BabySitterLoggedStatus() {
+  BabySitterLoggedStatus(): boolean {
     return this.UserBabySitterLogged;
   }
   LogOut() {
