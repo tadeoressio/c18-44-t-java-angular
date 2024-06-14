@@ -6,6 +6,7 @@ import com.childcaresolutions.childcare_app.enums.RoleEnum;
 import com.childcaresolutions.childcare_app.enums.TimeSlot;
 import com.childcaresolutions.childcare_app.exeptions.EmailAlreadyExistsException;
 import com.childcaresolutions.childcare_app.exeptions.EntityNotFoundException;
+import com.childcaresolutions.childcare_app.exeptions.ResourceNotFoundException;
 import com.childcaresolutions.childcare_app.model.Child;
 import com.childcaresolutions.childcare_app.model.Parent;
 import com.childcaresolutions.childcare_app.model.Skill;
@@ -16,10 +17,15 @@ import com.childcaresolutions.childcare_app.model.dto.respose.ResponseParent;
 import com.childcaresolutions.childcare_app.repository.IChildRepository;
 import com.childcaresolutions.childcare_app.repository.IParentRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 
 @RequiredArgsConstructor
@@ -135,5 +141,19 @@ public class ParentService implements IParentService {
     public Boolean toogleDeleteParent(Long id) {
         parentRepository.deleteById(id);
         return true;
+    }
+    public String updatePremiumStatus(Long parentId, boolean newPremiumStatus) {
+        Parent parent = parentRepository.findById(parentId)
+                .orElseThrow(() -> new EntityNotFoundException("Parent with id " + parentId + " not found"));
+
+        boolean currentPremiumStatus = parent.isPremium();
+        parent.setPremium(newPremiumStatus);
+        parentRepository.save(parent);
+
+        String statusMessage = "Premium status of Parent with id " + parentId + " updated from "
+                + (currentPremiumStatus ? "Premium" : "Non-Premium") + " to "
+                + (newPremiumStatus ? "Premium" : "Non-Premium");
+
+        return statusMessage;
     }
 }

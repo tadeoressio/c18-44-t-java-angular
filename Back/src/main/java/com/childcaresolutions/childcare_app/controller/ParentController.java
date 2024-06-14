@@ -6,6 +6,8 @@ package com.childcaresolutions.childcare_app.controller;
 
 import com.childcaresolutions.childcare_app.exeptions.EmailAlreadyExistsException;
 import com.childcaresolutions.childcare_app.exeptions.EntityNotFoundException;
+import com.childcaresolutions.childcare_app.exeptions.ResourceNotFoundException;
+import com.childcaresolutions.childcare_app.model.Parent;
 import com.childcaresolutions.childcare_app.model.dto.request.RequestCreateParent;
 import com.childcaresolutions.childcare_app.model.dto.request.RequestEditParent;
 import com.childcaresolutions.childcare_app.model.dto.respose.ResponseParent;
@@ -60,4 +62,15 @@ public class ParentController {
         parentService.toogleDeleteParent(id);
         return ResponseEntity.ok("Parent with Id: " + id + "has been deleted successfully");
     }
+
+    @PutMapping("/{parentId}/premium")
+    public ResponseEntity<String> updatePremiumStatus(
+            @PathVariable Long parentId,
+            @RequestParam boolean newPremiumStatus) {
+
+        String statusMessage = parentService.updatePremiumStatus(parentId, newPremiumStatus);
+
+        return ResponseEntity.ok(statusMessage);
+    }
+
 }
