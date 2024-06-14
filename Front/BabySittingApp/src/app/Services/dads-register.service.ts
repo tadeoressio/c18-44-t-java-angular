@@ -14,7 +14,8 @@ export class DadsRegisterService {
       name: userInfo[4] + ' ' + userInfo[5],
       email: userInfo[6],
       password: userInfo[7],
-      photo: userInfo[10],
+      photo: 'https://t3.ftcdn.net/jpg/04/60/91/88/360_F_460918802_XVCymFr7MoziFpnInbTDvrlblYhvAOi2.jpg',
+      // photo: userInfo[10],
       location: userInfo[8],
       skills: [{
         id: 0,

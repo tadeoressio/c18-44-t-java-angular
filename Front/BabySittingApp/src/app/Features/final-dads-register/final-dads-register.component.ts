@@ -136,7 +136,7 @@ export class FinalDadsRegisterComponent {
         this.registerService.register(this.userInfo).subscribe(res => {
           if(res) {
             console.log("respuesta de servicio: ", res)
-            localStorage.setItem('loggedUserInfo', res)
+            localStorage.setItem('loggedUserInfo', JSON.stringify(res))
             alert("Se ha registrado correctamente");
             this.router.navigateByUrl('HomePage')
           }

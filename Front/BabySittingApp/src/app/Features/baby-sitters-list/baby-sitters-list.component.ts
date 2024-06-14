@@ -101,7 +101,7 @@ export class BabySittersListComponent {
 
       // Verificar solicitudes de contacto
       const request = this.dadsRequest.find(req => req.nannyId === id);
-      this.userShowed.request = request ? request.status : "Todavía no envío una solicitud";
+      this.userShowed.request = request ? request.status : "Todavía no envió una solicitud";
     }
   }
 
@@ -109,7 +109,9 @@ export class BabySittersListComponent {
     if (!this.loggedUserPremium) {
       this.router.navigateByUrl('BecamePremium');
     } else {
-      this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe(() => {
+      console.log("User logged id: " + this.loggedUserInfo.id)
+      this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe((res) => {
+        console.log("res sendrequest: " + JSON.stringify(res))
         alert("Se ha enviado la solicitud correctamente");
       });
     }

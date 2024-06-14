@@ -11,84 +11,64 @@ import { RequestsService } from 'src/app/Services/requests.service';
 export class DadsRequestsPageComponent {
 
   shadowDiv: string = '3px 1px 41px -18px rgba(0,0,0,0.75)';
-  babySittersInfo: any[] = [];
   requestedBabySitters: any[] = [];
   selectedCardId: number | null = null;
-  babySittersSkills: any[] = [];
   loggedUserInfo: any = [];
   loggedUserPremium: boolean = false;
   dadsRequest: any = [];
   modalAccepted: boolean = false;
   modalNoAccepted: boolean = false;
-  indRequestedBabySitter = ({
-    'id': 0,
-    'photo': '',
-    'name': '',
-    'mail': '',
-    'desc': '',
-    'location': '',
-    'nannyRate': 0,
-    'skills': [[['']]],
-    'availableDays': [],
-    'hourAvailable': '',
-    'request': '',
-  })
 
-  constructor(private router: Router, private BabySittersInfoService: BabySittersInfoService, private requestService: RequestsService) {}
+  constructor(private router: Router, private babySittersInfoService: BabySittersInfoService, private requestService: RequestsService) {}
 
   ngOnInit() {
-    this.loggedUserInfo = localStorage.getItem('loggedUserInfo');
-    this.loggedUserInfo = JSON.parse(this.loggedUserInfo)
-    if(this.loggedUserInfo.isPremiun == false) {
+    this.loggedUserInfo = JSON.parse(localStorage.getItem('loggedUserInfo') || '{}');
+    if (this.loggedUserInfo.isPremium === false) {
       alert("Usted no es premium");
-      this.router.navigateByUrl('BecamePremium')
-    } else {
-      this.loggedUserPremium = true;
+      this.router.navigateByUrl('BecamePremium');
+      return;
     }
-    //traer info de niñeras
-    this.BabySittersInfoService.allBabySitters().subscribe(res => {
-      if(res) {
-        this.babySittersInfo = res;
-        //traer requests 
-        this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(res => {
-          if(res) {
-            this.dadsRequest = res;
-            //comprar y reemplazar de request con niñera
-            for(let i=0; i < this.babySittersInfo.length; i++) {
-              //info gral
-              this.indRequestedBabySitter.id = this.babySittersInfo[i].nannyId;
-              this.indRequestedBabySitter.photo = this.babySittersInfo[i].photo;
-              this.indRequestedBabySitter.name = this.babySittersInfo[i].name;
-              this.indRequestedBabySitter.mail = this.babySittersInfo[i].email;
-              this.indRequestedBabySitter.desc = this.babySittersInfo[i].desc;
-              this.indRequestedBabySitter.location = this.babySittersInfo[i].location;
-              this.indRequestedBabySitter.nannyRate = this.babySittersInfo[i].nannyRate;
-              //skills
-              let skills = [['']];
-              if(this.babySittersInfo[i].skills[0].cooking = true) {
-                skills[i].push("Cocinar");
+    this.loggedUserPremium = true;
+    this.babySittersInfoService.allBabySitters().subscribe(res => {
+      if (res) {
+        this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(reqRes => {
+          if (reqRes) {
+            this.dadsRequest = reqRes;
+            this.requestedBabySitters = res.map((babySitter: any, index: number) => {
+              const requestedBabySitter: any = {
+                id: babySitter.nannyId,
+                photo: babySitter.photo,
+                name: babySitter.name,
+                mail: babySitter.email,
+                desc: babySitter.desc,
+                location: babySitter.location,
+                nannyRate: babySitter.nannyRate,
+                skills: [],
+                availableDays: babySitter.availableDaysN,
+                hourAvailable: babySitter.timeSlotN,
+                request: this.dadsRequest[index]?.status || ''
+              };
+              if (babySitter.skills && babySitter.skills[0]) {
+                if (babySitter.skills[0].cooking) {
+                  requestedBabySitter.skills.push("Cocinar");
+                }
+                if (babySitter.skills[0].firstAid) {
+                  requestedBabySitter.skills.push("1ros auxilios");
+                }
+                if (babySitter.skills[0].hasCar) {
+                  requestedBabySitter.skills.push("Manejar");
+                }
               }
-              if(this.babySittersInfo[i].skills[0].firstAid = true) {
-                skills[i].push("1ros cuidados");
-              }
-              if(this.babySittersInfo[i].skills[0].hasCar = true) {
-                skills[i].push("Manejar");
-              }
-              this.indRequestedBabySitter.skills.push(skills);
-              //resto de info
-              this.indRequestedBabySitter.availableDays = this.babySittersInfo[i].availableDaysN;
-              this.indRequestedBabySitter.hourAvailable = this.babySittersInfo[i].timeSlotN;
-              this.indRequestedBabySitter.request = this.dadsRequest[i].status;
-              this.requestedBabySitters.push(this.indRequestedBabySitter)
-            }
+              return requestedBabySitter;
+            });
           }
-        })
-        
+        });
       }
-    })
+    });    
   }
+
   seeInfoBabySitter(request: string) {
-    if(request = 'Accepted') {
+    if (request === 'Accepted') {
       this.modalAccepted = true;
       this.modalNoAccepted = false;
     } else {
@@ -96,7 +76,8 @@ export class DadsRequestsPageComponent {
       this.modalAccepted = false;
     }
   }
+
   redirectToBabySittersList() {
-    this.router.navigateByUrl('babySittersList')
+    this.router.navigateByUrl('babySittersList');
   }
 }
