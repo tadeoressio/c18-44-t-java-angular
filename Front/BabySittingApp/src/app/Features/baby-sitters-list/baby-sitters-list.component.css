@@ -10,7 +10,7 @@
 #textBanner {
     margin-top: 5%;
     color: white;
-    display:inline-block;
+    display: inline-block;
 }
 #text {
     display: flex;
@@ -28,7 +28,8 @@
     border: 1px solid lightgrey;
     margin-left: 37px;
 }
-button,#buttonCard {
+button, 
+#buttonCard {
     width: 120px;
     background-color: #e6a9a9;
     border: none;
@@ -36,9 +37,7 @@ button,#buttonCard {
     color: white;
     height: 40px;
 }
-#buttonCard:hover {
-    background-color: grey;
-}
+#buttonCard:hover, 
 button:hover {
     background-color: grey;
     transition: 0.3s;
@@ -58,18 +57,18 @@ button:hover {
 #cardsBabySitters {
     display: block;
     width: 900px;
+    max-height: 750px; /* Establece la altura máxima */
+    overflow-y: auto;  /* Habilita el desplazamiento vertical */
 }
 .profileBabySitter {
     display: flex;
     justify-content: center;
     width: 50%;
-    height:750px;
+    height: 750px;
 }
 #profileDiv {
     width: 600px;
     box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
-    -webkit-box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
-    -moz-box-shadow: -3px 1px 41px -18px rgba(0,0,0,0.75);
 }
 #indCard {
     width: 800px;
@@ -86,7 +85,6 @@ button:hover {
 #card {
     display: flex;
     justify-content: center;
-    
 }
 #cardInfo {
     margin-left: 20px;
@@ -99,6 +97,8 @@ button:hover {
 }
 .card-text {
     margin: 0;
+    color: #e6a9a9;
+    font-weight: 600;
 }
 #cardButton {
     display: flex;
@@ -107,22 +107,18 @@ button:hover {
     align-items: center;
     margin-top: 80px;
 }
-.card-text {
-    color:#e6a9a9;
-    font-weight: 600;
-}
 #noSelected {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:100vh;
+    height: 100vh;
     font-size: 30px;
     font-weight: 600;
-    color:#e6a9a9;
+    color: #e6a9a9;
 }
-#calification{
+#calification {
     margin-left: 5%;
-    color:#e6a9a9
+    color: #e6a9a9;
 }
 span {
     color: black;
@@ -133,7 +129,8 @@ span {
     border: 1px solid rgb(163, 162, 162);
     padding: 15%;
 }
-#contactText1, #contactText2 {
+#contactText1, 
+#contactText2 {
     width: 100%;
     height: 30px;
 }
@@ -141,8 +138,7 @@ span {
     font-weight: 700;
 }
 #contactButton {
-    margin: 2%;   
-
+    margin: 2%;
 }
 #cross {
     width: 40px;
@@ -152,11 +148,9 @@ span {
 }
 #userShowedButtonDiv {
     display: flex;
-    /* align-items: center; */
     text-align: center;
     align-items: center;
 }
 #userShowedButtonDiv p {
-    margin:0;
-    
+    margin: 0;
 }

@@ -12,19 +12,7 @@ export class SecondQuestionDadsRegisterComponent {
   dadLogged: boolean = false;
   BabySitterLogged: boolean = false;
 
-  constructor(private router: Router, private loginService: LoginServiceService) { } 
-
-  ngOnInit() {
-    this.dadLogged = this.loginService.DadLoggedStatus();
-    this.BabySitterLogged = this.loginService.BabySitterLoggedStatus();
-    if(this.dadLogged || this.BabySitterLogged) {
-      alert("Ya está logueado");
-      this.router.navigateByUrl("HomePage");
-    }
-    localStorage.clear();
-  }
-
-    babyQuantity: number = 0;
+  babyQuantity: number = 0;
     quantBaby: number = 0;
     quantBabysChoosen: any[] = [];
     baby1Name: string = "";
@@ -36,6 +24,18 @@ export class SecondQuestionDadsRegisterComponent {
     baby4Name: string = "";
     baby4Desc: string = "";
     babysInfo: any[] = [];
+
+  constructor(private router: Router, private loginService: LoginServiceService) { } 
+
+  ngOnInit() {
+    this.dadLogged = this.loginService.DadLoggedStatus();
+    this.BabySitterLogged = this.loginService.BabySitterLoggedStatus();
+    if(!this.dadLogged && !this.BabySitterLogged) {
+      alert("Ya está logueado");
+      this.router.navigateByUrl("HomePage");
+    }
+    localStorage.clear();
+  }
 
   desplegateBabyInfo(value: number) {
     if(value < this.quantBabysChoosen.length) {

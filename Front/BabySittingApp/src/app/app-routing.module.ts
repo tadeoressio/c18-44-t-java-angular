@@ -13,6 +13,7 @@ import { SecondQuestionBabySittersRegisterComponent } from './Features/second-qu
 import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-question-register-baby-sitters/third-question-register-baby-sitters.component';
 import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
 import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
+import { PremiumMenuComponent } from './Features/premium-menu/premium-menu.component';
 
 const routes: Routes = [
   {
@@ -70,6 +71,10 @@ const routes: Routes = [
   {
     path: 'BabySittersList',
     component: BabySittersListComponent
+  },
+  {
+    path: 'BecamePremium',
+    component: PremiumMenuComponent,
   },
 ];
 

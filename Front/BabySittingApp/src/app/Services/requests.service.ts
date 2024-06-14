@@ -17,7 +17,9 @@ export class RequestsService {
       comment: "comentario vacío",
       contactMethod: "método vacío"
     }
-    return this.HttpService.post<any>('https://c18-44-t-java-angular-1.onrender.com/login/login', body);
+    return this.HttpService.post<any>('https://c18-44-t-java-angular-1.onrender.com/apiRequest/createRequest', body);
   }
-
+  getParentRequests(dadId: string) {
+    return this.HttpService.get<any>('https://c18-44-t-java-angular-1.onrender.com/apiRequest/parent/' + dadId);
+  }
 }

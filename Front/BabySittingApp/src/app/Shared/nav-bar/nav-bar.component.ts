@@ -23,6 +23,10 @@ export class NavBarComponent {
   ngOnInit() {
     this.infoLocal = localStorage.getItem("loggedUserInfo");
     this.infoLocal = JSON.parse(this.infoLocal);
+    if(!this.infoLocal) {
+      this.BabySitterLogged = false;
+      this.dadLogged = false;
+    }
     if(this.infoLocal.experiences) {
       this.BabySitterLogged = true;
       this.dadLogged = false;
@@ -32,10 +36,7 @@ export class NavBarComponent {
       this.BabySitterLogged = false;
     }
     this.userPhoto = this.infoLocal.photo;
-    if(!this.infoLocal) {
-      this.BabySitterLogged = false;
-      this.dadLogged = false;
-    }
+    
   }
 
   logOut() {

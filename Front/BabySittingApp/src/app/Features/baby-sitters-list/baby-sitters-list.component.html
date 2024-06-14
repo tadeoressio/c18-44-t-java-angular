@@ -61,6 +61,7 @@
                         Contacta
                     </button>      
                     <p>Calificación: <span>8</span></p>          
+                    <p>Contacto: <span>{{userShowed.request}}</span></p>          
                 </div>
                 
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -70,7 +71,7 @@
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">¿Quieres contactar con <span style="font-weight: 700;">{{userShowed.name}}</span>?</h1>
                                 <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
-                            <div class="modal-body">Si quieres contactarte con <span style="font-weight: 700;">{{userShowed.name}}</span> deberá aceptar tu solicitud</div>
+                            <div class="modal-body"><span style="font-weight: 700;">{{userShowed.name}}</span> deberá aceptar tu solicitud</div>
                             <div class="modal-footer">
                                 <button (click)="requestBabySitter()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Contactar</button>
                                 <button type="button" class="btn btn-primary">Cancelar</button>

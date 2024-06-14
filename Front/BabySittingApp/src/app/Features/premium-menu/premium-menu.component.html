@@ -1,0 +1,41 @@
+<app-nav-bar></app-nav-bar>
+<div id="MainDiv" class="form-group">
+    <div id="MenuDiv">
+        <div id="titleText">
+            <p>¿Quieres subscribirte a nuestro servicio?</p>
+        </div>
+        <p id="textExplicative">Al suscribirte podrás contactar con nuestras niñeras</p>
+        <div id="imgDiv">
+            <img src="../assets/Suscription.svg">
+        </div>        
+        <div id="FormDiv">
+            <div class="form-check">
+                <input (change)="onlyOne($event, 3)" class="form-check-input" type="checkbox" name="checked" id="flexCheck3Months">
+                <label class="form-check-label" for="flexCheck3Months">Suscripción por 3 meses</label>
+            </div>
+            <div class="form-check">
+                <input (change)="onlyOne($event, 6)" class="form-check-input" type="checkbox" name="checked" id="flexCheck6Months">
+                <label class="form-check-label" for="flexCheck6Months">Suscripción por 6 meses</label>
+            </div>
+            <div class="form-check">
+                <input (change)="onlyOne($event, 12)" class="form-check-input" type="checkbox" name="checked" id="flexCheck12Months">
+                <label class="form-check-label" for="flexCheck12Months">Suscripción por 12 meses</label>
+            </div>
+        </div>
+        <div id="textDiv">
+            <div id="inputs1">
+                <input type="text" placeholder="Ingrese su nombre" [(ngModel)]="cardName">
+                <input type="text" placeholder="Ingrese su apellido" [(ngModel)]="cardLastName">
+                <input type="text" placeholder="Ingrese su fecha de nacimiento" [(ngModel)]="cardBirth">
+            </div>
+            <div id="inputs2">
+                <input type="text" placeholder="Ingrese su número de tarjeta" [(ngModel)]="cardNumber">
+                <input type="text" placeholder="Ingrese su fecha de vencimiento" [(ngModel)]="cardExpiration">
+                <input type="text" placeholder="Ingrese los 3 números del dorso" [(ngModel)]="cardCSC">
+            </div>
+        </div>
+        <div id="submButton">
+            <button type="submit" (click)="premiumButton()">Siguiente</button>
+        </div>
+    </div>
+</div>

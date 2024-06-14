@@ -32,6 +32,7 @@ export class BabySittersListComponent {
     'skills': [''],
     'availableDays': [],
     'hourAvailable': '',
+    'request': '',
   })
 
   constructor(private router: Router, private BabySittersInfoService: BabySittersInfoService, private requestService: RequestsService) {}
@@ -66,19 +67,21 @@ export class BabySittersListComponent {
     })
   }
 
-  //reemplazar datos de perfil
+  //reemplazar datos de perfil seleccionado
     changeValues(id: number) {
       if(!this.babySitterSelected) {
         this.babySitterSelected = true;
       }
       for (let i=0; i < this.babySittersInfo.length; i++) {
         if(this.babySittersInfo[i].id == id) {
+          //Reemplazar datos principales
           this.userShowed.id = this.babySittersInfo[i].id;
           this.userShowed.photo = this.babySittersInfo[i].photo;
           this.userShowed.name = this.babySittersInfo[i].name;
           this.userShowed.desc = this.babySittersInfo[i].experiences;
           this.userShowed.availableDays = this.babySittersInfo[i].availableDaysN;
           this.userShowed.hourAvailable = this.babySittersInfo[i].timeSlotN;
+          //Reemplazar habilidades por texto
           if(this.babySittersInfo[i].skills[i].cooking) {
             this.userShowed.skills.push("Cocinar")
           }
@@ -89,17 +92,31 @@ export class BabySittersListComponent {
             this.userShowed.skills.push("Manejar")
           }
           this.userShowed.skills = [JSON.stringify(this.userShowed.skills)];
+          //Reemplazar solicitud de contacto
+          this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(res => {
+            console.log("res request: " + res)
+            let dadsRequests = res;
+            for (let i=0; i < dadsRequests.length; i++) {
+              if (dadsRequests[i].nannyId = this.userShowed.id) {
+                this.userShowed.request = dadsRequests[i].status;
+              }
+            }
+          })
+          if(this.userShowed.request = '') {
+            this.userShowed.request = 'Todavía no solicitado'
+          }
         }
       }
   }
   requestBabySitter() {
     if(!this.loggedUserPremium) {
-      this.router.navigateByUrl('HomePage')
+      this.router.navigateByUrl('BecamePremium')
     } else {
+      
       this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe(res => {
         console.log("la solicitud fue correcta")
       })
-      alert("Se ha enviado una solicitud")
+      alert("Se ha enviado la solicitud")
     }
   }
   // getStyle(cardId: number) {

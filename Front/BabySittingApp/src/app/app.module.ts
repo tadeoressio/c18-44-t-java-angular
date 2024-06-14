@@ -25,6 +25,7 @@ import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-ques
 import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
 import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
 import { FooterComponent } from './Shared/footer/footer.component';
+import { PremiumMenuComponent } from './Features/premium-menu/premium-menu.component';
 
 
 @NgModule({
@@ -44,6 +45,7 @@ import { FooterComponent } from './Shared/footer/footer.component';
     FinalBabySittersRegisterComponent,
     BabySittersListComponent,
     FooterComponent,
+    PremiumMenuComponent,
   ],
   imports: [
     BrowserModule,
