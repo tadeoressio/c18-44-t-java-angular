@@ -14,7 +14,6 @@ export class NavBarComponent {
   
   dadLogged: boolean = false;
   BabySitterLogged: boolean = false;
-
   userPhoto: string = '';
   infoLocal: any = [];
 
@@ -36,9 +35,7 @@ export class NavBarComponent {
       this.BabySitterLogged = false;
     }
     this.userPhoto = this.infoLocal.photo;
-    
   }
-
   logOut() {
     this.BabySitterLogged = false;
     this.dadLogged = false;

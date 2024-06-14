@@ -33,10 +33,8 @@ export class LoginPageComponent {
         localStorage.clear();
         localStorage.setItem("loggedUserInfo", JSON.stringify(res));
         this.respuesta = res
-        
         alert("Se ha logueado correctamente")
         this.router.navigateByUrl("HomePage");
-        
       }
       if(res.experiences) {
         this.BabySitterLogged = this.service.BabySitterLogged();
@@ -46,7 +44,6 @@ export class LoginPageComponent {
         this.dadLogged = this.service.DadLogged();
         this.BabySitterLogged  = false;
       }
-      console.log("res: "+ res)
     })
   }
 }

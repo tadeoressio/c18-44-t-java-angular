@@ -2,21 +2,54 @@
 <div id="MainDiv" >      
     <div id="menuDiv">
         <div id="cardsBabySitters">
-            <div *ngFor="let babySitter of babySittersInfo" id="indCard">
-                <div [ngClass]="{'card-shadow': selectedCardId === babySitter.id}" id="card1" class="card">
+            <div *ngFor="let requested of requestedBabySitters" id="indCard">
+                <div [ngClass]="{'card-shadow': selectedCardId === requested.id}" id="card1" class="card">
                     <div id="card" class="card-body">
                         <div>
-                            <img id="indCardBabySitterImg" src={{babySitter.photo}}>
+                            <img id="indCardBabySitterImg" src={{requested.photo}}>
                         </div>
                         <div class="selected" id="cardInfo">
-                            <h5 id="nameAndLast"class="card-title"><span>{{babySitter.name}}</span></h5>
-                            <p class="card-text">Días: <span>{{babySitter.availableDaysN}}</span></p>
-                            <p class="card-text">Horarios: <span>{{babySitter.timeSlotN}}</span></p>
-                            <p class="card-text">Habilidades: <span *ngFor="let skill of babySittersSkills">{{skill}}</span></p>
-                            <p class="card-text">Distancia: 2km</p>
+                            <h5 id="nameAndLast"class="card-title"><span>{{requested.name}}</span></h5>
+                            <p class="card-text">Días: <span>{{requested.availableDays}}</span></p>
+                            <p class="card-text">Horarios: <span>{{requested.hourAvailable}}</span></p>
+                            <p class="card-text">Habilidades: <span *ngFor="let skill of requested.skills">{{skill}}</span></p>
+                            <p class="card-text">Ubicación: <span>{{requested.location}}</span></p>
+                            <p class="card-text">Contacto: <span>{{requested.request}}</span></p>   
                         </div>
-                        <div id="cardButton">
-                            <button  id="buttonCard" class="btn btn-primary">Ver perfil</button>
+                        <div id="buttonCard">
+                            <button  (click)="seeInfoBabySitter(requested.request)" id="contactButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacta</button>           
+                        </div>
+                    </div>
+                </div>
+
+                <div *ngIf="modalAccepted" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"><span style="font-weight: 700;">{{requested.name}}</span> aceptó tu solicitud</h1>
+                                <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body"><span style="font-weight: 700;">Los datos de contacto son:</span><br>
+                                <p class="card-text">Correo: <span>{{requested.mail}}</span></p> <br>
+                            </div>
+                            <div class="modal-footer">
+                                <button  type="button" class="btn btn-secondary" data-bs-dismiss="modal">Aceptar</button>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="modalNoAccepted" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"><span style="font-weight: 700;"></span>No aceptó tu solicitud</h1>
+                                <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body"><span style="font-weight: 700;">¿Quiere buscar otra niñera?</span></div>
+                            <div class="modal-footer">
+                                <button  (click)="redirectToBabySittersList()"type="button" class="btn btn-secondary" data-bs-dismiss="modal">Buscar niñeras</button>
+                                <button type="button" class="btn btn-primary">Cancelar</button>
+                            </div>  
                         </div>
                     </div>
                 </div>

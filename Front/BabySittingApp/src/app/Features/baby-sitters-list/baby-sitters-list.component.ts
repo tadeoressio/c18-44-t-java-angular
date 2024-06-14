@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BabySittersInfoService } from 'src/app/Services/baby-sitters-info.service';
-import { NgStyle } from '@angular/common';
 import { RequestsService } from 'src/app/Services/requests.service';
-
 
 @Component({
   selector: 'app-baby-sitters-list',
@@ -11,140 +9,123 @@ import { RequestsService } from 'src/app/Services/requests.service';
   styleUrls: ['./baby-sitters-list.component.css']
 })
 export class BabySittersListComponent {
-
-  shadowDiv: string = '3px 1px 41px -18px rgba(0,0,0,0.75)';
   
-
+  shadowDiv: string = '3px 1px 41px -18px rgba(0,0,0,0.75)';
   babySittersInfo: any[] = [];
   babySittersSkills: any[] = [];
-  dadsRequest: any = [];
-
+  dadsRequest: any[] = [];
   babySitterSelected: boolean = false;
-
-  loggedUserInfo: any = [];
+  loggedUserInfo: any = {};
   loggedUserPremium: boolean = false;
-
   modalContact: boolean = false;
   modalPremium: boolean = false;
+  selectedCardId: number | null = null;
+  userShowed = {
+    id: 0,
+    photo: '',
+    name: '',
+    desc: '',
+    location: '',
+    nannyRate: 0,
+    skills: [] as string[],
+    availableDays: [] as string[],
+    hourAvailable: '',
+    request: '',
+  };
 
-  userShowed = ({
-    'id': 0,
-    'photo': '',
-    'name': '',
-    'desc': '',
-    'location': '',
-    'nannyRate': 0,
-    'skills': [''],
-    'availableDays': [],
-    'hourAvailable': '',
-    'request': '',
-  })
-  selectedCardId: number | null = null;  
-
-
-  constructor(private router: Router, private BabySittersInfoService: BabySittersInfoService, private requestService: RequestsService) {}
-
+  constructor(
+    private router: Router,
+    private babySittersInfoService: BabySittersInfoService,
+    private requestService: RequestsService
+  ) {}
 
   ngOnInit() {
-    this.loggedUserInfo = localStorage.getItem('loggedUserInfo');
-    this.loggedUserInfo = JSON.parse(this.loggedUserInfo)
-    if(this.loggedUserInfo.isPremiun) {
-      this.loggedUserPremium = true;
+    const storedUserInfo = localStorage.getItem('loggedUserInfo');
+    if (storedUserInfo) {
+      this.loggedUserInfo = JSON.parse(storedUserInfo);
+      this.loggedUserPremium = this.loggedUserInfo.isPremiun || false;
     }
-    //traer info de niñeras
-    this.BabySittersInfoService.allBabySitters().subscribe(res => {
-      if(res) {
-        console.log("respuesta de servicio: ", res);
+
+    // Obtener información de niñeras
+    this.babySittersInfoService.allBabySitters().subscribe(res => {
+      if (res) {
         this.babySittersInfo = res;
-        //pasar boolean a string
-        for(let i=0; i < this.babySittersInfo.length; i++) {
-          let skills = [['']];
-          if(this.babySittersInfo[i].skills[0].cooking = true) {
-            skills[i].push("Cocinar");
+        this.babySittersInfo.forEach(babySitter => {
+          let skills: string[] = [];
+          if (babySitter.skills && babySitter.skills[0]) {
+            if (babySitter.skills[0].cooking) skills.push("Cocinar");
+            if (babySitter.skills[0].firstAid) skills.push("1ros cuidados");
+            if (babySitter.skills[0].hasCar) skills.push("Manejar");
           }
-          if(this.babySittersInfo[i].skills[0].firstAid = true) {
-            skills[i].push("1ros cuidados");
-          }
-          if(this.babySittersInfo[i].skills[0].hasCar = true) {
-            skills[i].push("Manejar");
-          }
-          this.babySittersSkills.push(skills);
-        }
+          babySitter.displaySkills = skills.join(", "); 
+        });
       }
-    })
-    //Reemplazar solicitud de contacto
+    });
+
+    // Obtener solicitudes de contacto
     this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(res => {
-      console.log("res request: " + JSON.stringify(res))
-      if(res) {
+      if (res) {
         this.dadsRequest = res;
       }
-    })
+    });
   }
 
-  //reemplazar datos de perfil seleccionado
-    changeValues(id: number) {
-      this.selectedCardId = id;  // Set the selected card ID
-      if (!this.babySitterSelected) {
-        this.babySitterSelected = true;
+  // Reemplazar datos de perfil seleccionado
+  changeValues(id: number) {
+    this.selectedCardId = id;
+    this.babySitterSelected = true;
+
+    const selectedBabySitter = this.babySittersInfo.find(babySitter => babySitter.id === id);
+    if (selectedBabySitter) {
+      // Reemplazar datos principales
+      this.userShowed = {
+        id: selectedBabySitter.id,
+        photo: selectedBabySitter.photo,
+        name: selectedBabySitter.name,
+        desc: selectedBabySitter.experiences,
+        location: selectedBabySitter.location,
+        nannyRate: selectedBabySitter.nannyRate,
+        skills: [],
+        availableDays: selectedBabySitter.availableDaysN,
+        hourAvailable: selectedBabySitter.timeSlotN,
+        request: '',
+      };
+
+      // Reemplazar habilidades por texto
+      this.userShowed.skills = [];  // Limpiar habilidades antes de agregar nuevas
+      if (selectedBabySitter.skills && selectedBabySitter.skills[0]) {
+        if (selectedBabySitter.skills[0].cooking) this.userShowed.skills.push("Cocinar");
+        if (selectedBabySitter.skills[0].firstAid) this.userShowed.skills.push("1ros auxilios");
+        if (selectedBabySitter.skills[0].hasCar) this.userShowed.skills.push("Manejar");
       }
-      for (let i=0; i < this.babySittersInfo.length; i++) {
-        if(this.babySittersInfo[i].id == id) {
-          //Reemplazar datos principales
-          this.userShowed.id = this.babySittersInfo[i].id;
-          this.userShowed.photo = this.babySittersInfo[i].photo;
-          this.userShowed.name = this.babySittersInfo[i].name;
-          this.userShowed.desc = this.babySittersInfo[i].experiences;
-          this.userShowed.availableDays = this.babySittersInfo[i].availableDaysN;
-          this.userShowed.hourAvailable = this.babySittersInfo[i].timeSlotN;
-          //Reemplazar habilidades por texto
-          if(this.babySittersInfo[i].skills[i].cooking) {
-            this.userShowed.skills.push("Cocinar")
-          }
-          if(this.babySittersInfo[i].skills[i].firstAid) {
-            this.userShowed.skills.push("1ros auxilios")
-          }
-          if(this.babySittersInfo[i].skills[i].hasCar) {
-            this.userShowed.skills.push("Manejar")
-          }
-          this.userShowed.skills = [JSON.stringify(this.userShowed.skills)];
-          
-          if(this.userShowed.request = '') {
-            this.userShowed.request = 'Todavía no solicitado'
-          }
-          
-        }
-        if(this.dadsRequest[i].nannyId = this.userShowed.id) {
-          this.userShowed.request = this.dadsRequest[i].status
-        }
-        
-      }
-      
+
+      // Verificar solicitudes de contacto
+      const request = this.dadsRequest.find(req => req.nannyId === id);
+      this.userShowed.request = request ? request.status : "Todavía no envío una solicitud";
     }
-    requestBabySitter() {
-      if(!this.loggedUserPremium) {
-        this.router.navigateByUrl('BecamePremium')
-      } else {
-        
-        this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe(res => {
-          console.log("la solicitud fue correcta: " + res)
-        })
-        alert("Se ha enviado la solicitud")
-      }
-    }
-    selectModal() {
-      if(this.loggedUserPremium) {
-        this.modalPremium = true;      
-        this.modalContact = false;
-      } else {
-        this.modalContact = true;
-        this.modalPremium = false; 
-      }
-    }
-    // getStyle(cardId: number) {
-    //   for(let i=0; i < this.babySittersInfo.length; i++) {
-    //     if(cardId = this.babySittersInfo[i]) {
-    //       return ('3px 1px 41px -18px rgba(0,0,0,0.75)')
-    //     }
-    //   }
-    // }
   }
+
+  requestBabySitter() {
+    if (!this.loggedUserPremium) {
+      this.router.navigateByUrl('BecamePremium');
+    } else {
+      this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe(() => {
+        alert("Se ha enviado la solicitud correctamente");
+      });
+    }
+  }
+
+  selectModal() {
+    if (this.loggedUserPremium) {
+      this.modalContact = true;
+      this.modalPremium = false;
+    } else {
+      this.modalPremium = true;
+      this.modalContact = false;
+    }
+  }
+
+  navigateToPremium() {
+    this.router.navigateByUrl('BecamePremium');
+  }
+}

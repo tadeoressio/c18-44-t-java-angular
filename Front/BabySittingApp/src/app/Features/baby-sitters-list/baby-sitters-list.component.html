@@ -22,30 +22,33 @@
     </div>
 
     <div id="listBabySitters">
-        <div id="cardsBabySitters">
-            <div *ngFor="let babySitter of babySittersInfo" id="indCard">
-                <div [ngClass]="{'card-shadow': selectedCardId === babySitter.id}" id="card1" class="card">
-                    <div id="card" class="card-body">
-                        <div>
-                            <img id="indCardBabySitterImg" src={{babySitter.photo}}>
-                        </div>
-                        <div class="selected" id="cardInfo">
-                            <h5 id="nameAndLast"class="card-title"><span>{{babySitter.name}}</span></h5>
-                            <p class="card-text">Días: <span>{{babySitter.availableDaysN}}</span></p>
-                            <p class="card-text">Horarios: <span>{{babySitter.timeSlotN}}</span></p>
-                            <p class="card-text">Habilidades: <span *ngFor="let skill of babySittersSkills">{{skill}}</span></p>
-                            <p class="card-text">Distancia: 2km</p>
-                        </div>
-                        <div id="cardButton">
-                            <button (click)="changeValues(babySitter.id)" id="buttonCard" class="btn btn-primary">Ver perfil</button>
+        <div id="listBabySitters">
+            <div id="cardsBabySitters">
+                <div *ngFor="let babySitter of babySittersInfo" id="indCard">
+                    <div [ngClass]="{'card-shadow': selectedCardId === babySitter.id}" id="card1" class="card">
+                        <div id="card" class="card-body">
+                            <div>
+                                <img id="indCardBabySitterImg" [src]="babySitter.photo">
+                            </div>
+                            <div class="selected" id="cardInfo">
+                                <h5 id="nameAndLast" class="card-title"><span>{{babySitter.name}}</span></h5>
+                                <p class="card-text">Días: <span>{{babySitter.availableDaysN}}</span></p>
+                                <p class="card-text">Horarios: <span>{{babySitter.timeSlotN}}</span></p>
+                                <p class="card-text">Habilidades: <span>{{ babySitter.displaySkills }}</span></p>
+                                <p class="card-text">Distancia: 2km</p>
+                            </div>
+                            <div id="cardButton">
+                                <button (click)="changeValues(babySitter.id)" id="buttonCard" class="btn btn-primary">Ver perfil</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
 
         <div *ngIf="babySitterSelected" class="profileBabySitter">  
-            <div id="profileDiv" class="card" >
+            <div id="profileDiv" class="card">
                 <img id="userShowedImg" src={{userShowed.photo}} class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">{{userShowed.name}}</h5>
@@ -54,35 +57,20 @@
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Días disponible: {{userShowed.availableDays}}</li>
                   <li class="list-group-item">Horario disponible: {{userShowed.hourAvailable}}</li>
-                  <li class="list-group-item">Habilidades: {{userShowed.skills}}</li>
+                  <li class="list-group-item">Habilidades: {{userShowed.skills.join(', ')}}</li>
                 </ul>
                 <div id="userShowedButtonDiv">
-                    <button (click)="selectModal()" id="contactButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacta</button>      
-                    <p>Calificación: <span class="spanInfo">8</span></p>          
-                    <p>Contacto: <span class="spanInfo">{{userShowed.request}}</span></p>          
+                    <button (click)="selectModal()" id="contactButton" type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="modalContact ? '#contactModal' : '#premiumModal'">Contacta</button>
+                    <p>Calificación: <span class="spanInfo">8</span></p>
+                    <p>Contacto: <span class="spanInfo">{{userShowed.request}}</span></p>
                 </div>
                 
-                <div *ngIf="modalPremium" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel"><span style="font-weight: 700;">{{loggedUserInfo.name}}</span>Debe convertirse en premium para enviar una solicitud</h1>
-                                <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body"><span style="font-weight: 700;">¿Quiere continuar para convertirse en premium?</span></div>
-                            <div class="modal-footer">
-                                <button (click)="requestBabySitter()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Contactar</button>
-                                <button type="button" class="btn btn-primary">Cancelar</button>
-                            </div>  
-                        </div>
-                    </div>
-                </div>
-                <div *ngIf="modalContact" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div *ngIf="modalContact" class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">¿Quieres contactar con <span style="font-weight: 700;">{{userShowed.name}}</span>?</h1>
-                                <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <button id="cross" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body"><span style="font-weight: 700;">{{userShowed.name}}</span> deberá aceptar tu solicitud</div>
                             <div class="modal-footer">
@@ -93,11 +81,26 @@
                     </div>
                 </div>
                 
+                <div *ngIf="modalPremium" class="modal fade" id="premiumModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"><span style="font-weight: 700;">{{loggedUserInfo.name}}</span>, debes convertirte en premium para enviar una solicitud</h1>
+                                <button id="cross" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body"><span style="font-weight: 700;">¿Quiere continuar para convertirse en premium?</span></div>
+                            <div class="modal-footer">
+                                <button (click)="navigateToPremium()" type="button" class="btn btn-secondary">Aceptar</button>
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cancelar</button>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>        
+        </div>
 
         <div *ngIf="!babySitterSelected" class="profileBabySitter">  
-            <div id="profileDiv" class="card" >
+            <div id="profileDiv" class="card">
                 <div id="noSelected">
                     <p>Seleccione un perfil</p>
                 </div>  
