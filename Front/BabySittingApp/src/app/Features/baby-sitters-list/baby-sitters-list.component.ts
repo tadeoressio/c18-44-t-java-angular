@@ -98,7 +98,7 @@ export class BabySittersListComponent {
           this.userShowed.skills = [JSON.stringify(this.userShowed.skills)];
           //Reemplazar solicitud de contacto
           this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(res => {
-            console.log("res request: " + res)
+            console.log("res request: " + JSON.stringify(res))
             let dadsRequests = res;
             for (let i=0; i < dadsRequests.length; i++) {
               if (dadsRequests[i].nannyId = this.userShowed.id) {
