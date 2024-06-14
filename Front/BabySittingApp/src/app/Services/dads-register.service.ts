@@ -27,6 +27,7 @@ export class DadsRegisterService {
       phoneNumber: userInfo[9],
       numberOfChildren: userInfo[0][0],
       infoFamily: userInfo[0][2],
+      isPremium: false,
       childrens: [{
         id: 0,
         name: userInfo[0][1],

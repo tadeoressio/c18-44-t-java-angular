@@ -39,7 +39,7 @@ export class BabySittersListComponent {
     'hourAvailable': '',
     'request': '',
   })
-  selectedCardId: number | null = null;  // Variable to keep track of the selected card
+  selectedCardId: number | null = null;  
 
 
   constructor(private router: Router, private BabySittersInfoService: BabySittersInfoService, private requestService: RequestsService) {}

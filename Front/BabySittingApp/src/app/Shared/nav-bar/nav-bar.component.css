@@ -42,8 +42,9 @@ a {
     text-decoration: none;
 }
 #Access a:hover {
-    color: #f8acac;
+    color: #6e0404;
     transition: 0.5s;
+    cursor: pointer;
 }
 #Access p-button, app-login-menu, app-logged-menu, app-not-menu, app-lik-menu {
     margin: 2%;
@@ -56,10 +57,6 @@ button {
     border: none;
     
     margin-left: 5%;
-}
-button:hover {
-    background-color: #f8acac;
-    transition: 0.3s;
 }
 #loggedImg {
     width: 80px;

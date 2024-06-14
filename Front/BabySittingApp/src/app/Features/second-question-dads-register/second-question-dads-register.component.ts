@@ -27,15 +27,15 @@ export class SecondQuestionDadsRegisterComponent {
 
   constructor(private router: Router, private loginService: LoginServiceService) { } 
 
-  ngOnInit() {
-    this.dadLogged = this.loginService.DadLoggedStatus();
-    this.BabySitterLogged = this.loginService.BabySitterLoggedStatus();
-    if(!this.dadLogged && !this.BabySitterLogged) {
-      alert("Ya está logueado");
-      this.router.navigateByUrl("HomePage");
-    }
-    localStorage.clear();
-  }
+  // ngOnInit() {
+  //   this.dadLogged = this.loginService.DadLoggedStatus();
+  //   this.BabySitterLogged = this.loginService.BabySitterLoggedStatus();
+  //   if(!this.dadLogged && !this.BabySitterLogged) {
+  //     alert("Ya está logueado");
+  //     this.router.navigateByUrl("HomePage");
+  //   }
+  //   localStorage.clear();
+  // }
 
   desplegateBabyInfo(value: number) {
     if(value < this.quantBabysChoosen.length) {

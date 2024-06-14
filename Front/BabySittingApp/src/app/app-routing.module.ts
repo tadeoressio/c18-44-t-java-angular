@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { HomePageComponent } from './Features/home-page/home-page.component';
 import { FirstQuestionRegisterComponent } from './Features/first-question-register/first-question-register.component';
-import { RegisterDadsComponent } from './Features/register-dads/register-dads.component';
-import { RegisterBabySittersComponent } from './Features/register-baby-sitters/register-baby-sitters.component';
 import { LoginPageComponent } from './Features/login-page/login-page.component';
 import { SecondQuestionDadsRegisterComponent } from './features/second-question-dads-register/second-question-dads-register.component';
 import { ThirdQuestionDadsRegisterComponent } from './Features/third-question-dads-register/third-question-dads-register.component';
@@ -14,6 +12,7 @@ import { ThirdQuestionRegisterBabySittersComponent } from './Features/third-ques
 import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters-register/final-baby-sitters-register.component';
 import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
 import { PremiumMenuComponent } from './Features/premium-menu/premium-menu.component';
+import { DadsRequestsPageComponent } from './features/dads-requests-page/dads-requests-page.component';
 
 const routes: Routes = [
   {
@@ -27,15 +26,7 @@ const routes: Routes = [
   {
   path: 'FirstQuestionRegister',
   component: FirstQuestionRegisterComponent
-  },
-  {
-    path: 'RegisterDads',
-    component: RegisterDadsComponent
-  },
-  {
-    path: 'RegisterBabySitters',
-    component: RegisterBabySittersComponent
-  },  
+  }, 
   {
     path: 'LoginPage',
     component: LoginPageComponent
@@ -75,6 +66,10 @@ const routes: Routes = [
   {
     path: 'BecamePremium',
     component: PremiumMenuComponent,
+  },
+  {
+    path: 'RequestsParents',
+    component: DadsRequestsPageComponent,
   },
 ];
 

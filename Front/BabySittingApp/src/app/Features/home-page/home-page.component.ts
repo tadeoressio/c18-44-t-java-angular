@@ -51,7 +51,7 @@ export class HomePageComponent implements OnInit {
         this.router.navigateByUrl('/BabySittersList'); 
     }
     redirectDadsToRequest() {
-        this.router.navigateByUrl('/'); 
+        this.router.navigateByUrl('/RequestsParents'); 
     }
     redirectBabySittersToRequest() {
         this.router.navigateByUrl('/'); 

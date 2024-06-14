@@ -13,8 +13,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './Features/home-page/home-page.component';
 import { NavBarComponent } from './Shared/nav-bar/nav-bar.component';
 import { FirstQuestionRegisterComponent } from './Features/first-question-register/first-question-register.component';
-import { RegisterDadsComponent } from './Features/register-dads/register-dads.component';
-import { RegisterBabySittersComponent } from './Features/register-baby-sitters/register-baby-sitters.component';
 import { LoginPageComponent } from './Features/login-page/login-page.component';
 import { SecondQuestionDadsRegisterComponent } from './features/second-question-dads-register/second-question-dads-register.component';
 import { ThirdQuestionDadsRegisterComponent } from './Features/third-question-dads-register/third-question-dads-register.component';
@@ -26,6 +24,7 @@ import { FinalBabySittersRegisterComponent } from './Features/final-baby-sitters
 import { BabySittersListComponent } from './Features/baby-sitters-list/baby-sitters-list.component';
 import { FooterComponent } from './Shared/footer/footer.component';
 import { PremiumMenuComponent } from './Features/premium-menu/premium-menu.component';
+import { DadsRequestsPageComponent } from './features/dads-requests-page/dads-requests-page.component';
 
 
 @NgModule({
@@ -34,8 +33,6 @@ import { PremiumMenuComponent } from './Features/premium-menu/premium-menu.compo
     HomePageComponent,
     NavBarComponent,
     FirstQuestionRegisterComponent,
-    RegisterDadsComponent,
-    RegisterBabySittersComponent,
     LoginPageComponent,
     SecondQuestionDadsRegisterComponent,
     ThirdQuestionDadsRegisterComponent,
@@ -46,6 +43,7 @@ import { PremiumMenuComponent } from './Features/premium-menu/premium-menu.compo
     BabySittersListComponent,
     FooterComponent,
     PremiumMenuComponent,
+    DadsRequestsPageComponent,
   ],
   imports: [
     BrowserModule,

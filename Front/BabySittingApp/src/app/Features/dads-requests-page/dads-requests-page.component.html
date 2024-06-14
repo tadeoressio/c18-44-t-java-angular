@@ -1,0 +1,26 @@
+<app-nav-bar></app-nav-bar>
+<div id="MainDiv" >      
+    <div id="menuDiv">
+        <div id="cardsBabySitters">
+            <div *ngFor="let babySitter of babySittersInfo" id="indCard">
+                <div [ngClass]="{'card-shadow': selectedCardId === babySitter.id}" id="card1" class="card">
+                    <div id="card" class="card-body">
+                        <div>
+                            <img id="indCardBabySitterImg" src={{babySitter.photo}}>
+                        </div>
+                        <div class="selected" id="cardInfo">
+                            <h5 id="nameAndLast"class="card-title"><span>{{babySitter.name}}</span></h5>
+                            <p class="card-text">Días: <span>{{babySitter.availableDaysN}}</span></p>
+                            <p class="card-text">Horarios: <span>{{babySitter.timeSlotN}}</span></p>
+                            <p class="card-text">Habilidades: <span *ngFor="let skill of babySittersSkills">{{skill}}</span></p>
+                            <p class="card-text">Distancia: 2km</p>
+                        </div>
+                        <div id="cardButton">
+                            <button  id="buttonCard" class="btn btn-primary">Ver perfil</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>
