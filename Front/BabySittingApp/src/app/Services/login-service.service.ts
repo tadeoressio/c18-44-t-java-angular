@@ -18,7 +18,7 @@ export class LoginServiceService {
       email: email,
       password: password,
     }
-    console.log(body)
+    console.log("body: " + body)
     return this.HttpService.post<any>('https://c18-44-t-java-angular-1.onrender.com/login/login', body);
   }
   DadLogged(): boolean {

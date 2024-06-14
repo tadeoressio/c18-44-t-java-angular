@@ -46,6 +46,7 @@ export class LoginPageComponent {
         this.dadLogged = this.service.DadLogged();
         this.BabySitterLogged  = false;
       }
+      console.log("res: "+ res)
     })
   }
 }

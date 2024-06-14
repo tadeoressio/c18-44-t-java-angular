@@ -13,6 +13,7 @@ import { RequestsService } from 'src/app/Services/requests.service';
 export class BabySittersListComponent {
 
   shadowDiv: string = '3px 1px 41px -18px rgba(0,0,0,0.75)';
+  
 
   babySittersInfo: any[] = [];
   babySittersSkills: any[] = [];
@@ -34,6 +35,8 @@ export class BabySittersListComponent {
     'hourAvailable': '',
     'request': '',
   })
+  selectedCardId: number | null = null;  // Variable to keep track of the selected card
+
 
   constructor(private router: Router, private BabySittersInfoService: BabySittersInfoService, private requestService: RequestsService) {}
 
@@ -69,7 +72,8 @@ export class BabySittersListComponent {
 
   //reemplazar datos de perfil seleccionado
     changeValues(id: number) {
-      if(!this.babySitterSelected) {
+      this.selectedCardId = id;  // Set the selected card ID
+      if (!this.babySitterSelected) {
         this.babySitterSelected = true;
       }
       for (let i=0; i < this.babySittersInfo.length; i++) {

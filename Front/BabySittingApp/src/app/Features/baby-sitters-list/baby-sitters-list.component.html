@@ -24,7 +24,7 @@
     <div id="listBabySitters">
         <div id="cardsBabySitters">
             <div *ngFor="let babySitter of babySittersInfo" id="indCard">
-                <div [ngStyle]="{'box-shadow': shadowDiv}" id="card1" class="card">
+                <div [ngClass]="{'card-shadow': selectedCardId === babySitter.id}" id="card1" class="card">
                     <div id="card" class="card-body">
                         <div>
                             <img id="indCardBabySitterImg" src={{babySitter.photo}}>
