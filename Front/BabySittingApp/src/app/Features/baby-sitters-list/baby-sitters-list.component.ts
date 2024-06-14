@@ -17,11 +17,15 @@ export class BabySittersListComponent {
 
   babySittersInfo: any[] = [];
   babySittersSkills: any[] = [];
+  dadsRequest: any = [];
 
   babySitterSelected: boolean = false;
 
   loggedUserInfo: any = [];
   loggedUserPremium: boolean = false;
+
+  modalContact: boolean = false;
+  modalPremium: boolean = false;
 
   userShowed = ({
     'id': 0,
@@ -68,6 +72,13 @@ export class BabySittersListComponent {
         }
       }
     })
+    //Reemplazar solicitud de contacto
+    this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(res => {
+      console.log("res request: " + JSON.stringify(res))
+      if(res) {
+        this.dadsRequest = res;
+      }
+    })
   }
 
   //reemplazar datos de perfil seleccionado
@@ -96,39 +107,44 @@ export class BabySittersListComponent {
             this.userShowed.skills.push("Manejar")
           }
           this.userShowed.skills = [JSON.stringify(this.userShowed.skills)];
-          //Reemplazar solicitud de contacto
-          this.requestService.getParentRequests(this.loggedUserInfo.id).subscribe(res => {
-            console.log("res request: " + JSON.stringify(res))
-            let dadsRequests = res;
-            for (let i=0; i < dadsRequests.length; i++) {
-              if (dadsRequests[i].nannyId = this.userShowed.id) {
-                this.userShowed.request = dadsRequests[i].status;
-              }
-            }
-          })
+          
           if(this.userShowed.request = '') {
             this.userShowed.request = 'Todavía no solicitado'
           }
+          
         }
+        if(this.dadsRequest[i].nannyId = this.userShowed.id) {
+          this.userShowed.request = this.dadsRequest[i].status
+        }
+        
       }
-  }
-  requestBabySitter() {
-    if(!this.loggedUserPremium) {
-      this.router.navigateByUrl('BecamePremium')
-    } else {
       
-      this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe(res => {
-        console.log("la solicitud fue correcta")
-      })
-      alert("Se ha enviado la solicitud")
     }
+    requestBabySitter() {
+      if(!this.loggedUserPremium) {
+        this.router.navigateByUrl('BecamePremium')
+      } else {
+        
+        this.requestService.sendRequest(this.userShowed.id, this.loggedUserInfo.id).subscribe(res => {
+          console.log("la solicitud fue correcta: " + res)
+        })
+        alert("Se ha enviado la solicitud")
+      }
+    }
+    selectModal() {
+      if(this.loggedUserPremium) {
+        this.modalPremium = true;      
+        this.modalContact = false;
+      } else {
+        this.modalContact = true;
+        this.modalPremium = false; 
+      }
+    }
+    // getStyle(cardId: number) {
+    //   for(let i=0; i < this.babySittersInfo.length; i++) {
+    //     if(cardId = this.babySittersInfo[i]) {
+    //       return ('3px 1px 41px -18px rgba(0,0,0,0.75)')
+    //     }
+    //   }
+    // }
   }
-  // getStyle(cardId: number) {
-  //   for(let i=0; i < this.babySittersInfo.length; i++) {
-  //     if(cardId = this.babySittersInfo[i]) {
-  //       return ('3px 1px 41px -18px rgba(0,0,0,0.75)')
-  //     }
-  //   }
-  // }
-}
-

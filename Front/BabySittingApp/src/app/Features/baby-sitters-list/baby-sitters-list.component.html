@@ -57,14 +57,27 @@
                   <li class="list-group-item">Habilidades: {{userShowed.skills}}</li>
                 </ul>
                 <div id="userShowedButtonDiv">
-                    <button id="contactButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Contacta
-                    </button>      
-                    <p>Calificación: <span>8</span></p>          
-                    <p>Contacto: <span>{{userShowed.request}}</span></p>          
+                    <button (click)="selectModal()" id="contactButton" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Contacta</button>      
+                    <p>Calificación: <span class="spanInfo">8</span></p>          
+                    <p>Contacto: <span class="spanInfo">{{userShowed.request}}</span></p>          
                 </div>
                 
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div *ngIf="modalPremium" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel"><span style="font-weight: 700;">{{loggedUserInfo.name}}</span>Debe convertirse en premium para enviar una solicitud</h1>
+                                <button id="cross"type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body"><span style="font-weight: 700;">¿Quiere continuar para convertirse en premium?</span></div>
+                            <div class="modal-footer">
+                                <button (click)="requestBabySitter()" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Contactar</button>
+                                <button type="button" class="btn btn-primary">Cancelar</button>
+                            </div>  
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="modalContact" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">

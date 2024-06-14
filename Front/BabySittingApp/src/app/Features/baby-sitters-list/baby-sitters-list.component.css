@@ -158,3 +158,6 @@ span {
 .card-shadow {
     box-shadow: 3px 1px 41px -18px rgba(0, 0, 0, 0.75);
 }
+.spanInfo {
+    color:#e6a9a9;
+}
